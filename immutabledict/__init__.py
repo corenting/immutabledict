@@ -4,7 +4,7 @@ import operator
 import sys
 from collections import OrderedDict
 
-__version__ = '0.1.0'
+__version__ = "0.1.0"
 
 
 class immutabledict(collections.abc.Mapping):
@@ -39,7 +39,7 @@ class immutabledict(collections.abc.Mapping):
         return len(self._dict)
 
     def __repr__(self):
-        return '<%s %r>' % (self.__class__.__name__, self._dict)
+        return "<%s %r>" % (self.__class__.__name__, self._dict)
 
     def __hash__(self):
         if self._hash is None:

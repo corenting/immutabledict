@@ -1,0 +1,16 @@
+language: python
+python:
+  - "3.5"
+  - "3.6"
+  - "3.7"
+  - "3.8"
+  - "nightly"
+before_install:
+  - pip install poetry
+install:
+  - poetry install
+script:
+  - poetry run black --check
+  - poetry run isort **/*.py
+  - poetry run pytest --cov=immutabledict
+  - codecov
