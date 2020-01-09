@@ -1,9 +1,8 @@
 import collections
-import operator
 import functools
+import operator
 import sys
 from collections import OrderedDict
-
 
 __version__ = '0.1.0'
 
