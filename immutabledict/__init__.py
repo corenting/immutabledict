@@ -16,6 +16,10 @@ class immutabledict(collections.Mapping):
 
     dict_cls = dict
 
+    @classmethod
+    def fromkeys(cls, seq, value=None, *args, **kwargs):
+        return cls(dict.fromkeys(seq, value, *args, **kwargs))
+
     def __init__(self, *args, **kwargs):
         self._dict = self.dict_cls(*args, **kwargs)
         self._hash = None
