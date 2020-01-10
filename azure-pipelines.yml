@@ -1,0 +1,53 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+strategy:
+  matrix:
+    Python36:
+      python.version: '3.6'
+    Python37:
+      python.version: '3.7'
+    Python38:
+      python.version: '3.8'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python.version)'
+  displayName: 'Use Python $(python.version)'
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install poetry
+  displayName: 'Install tools'
+
+- script: |
+    poetry install
+  displayName: 'Install dependencies'
+
+- script: |
+    poetry run black --check
+  displayName: 'Lint (black)'
+
+- script: |
+    poetry run isort **/*.py
+  displayName: 'Lint (isort)'
+
+- script: |
+    poetry run pytest tests --junitxml=junit/test-results.xml --cov=immutabledict --cov-report=xml
+  displayName: 'Test'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: '**/test-*.xml'
+    testRunTitle: 'Publish test results for Python $(python.version)'
+  displayName: 'Publish test results for Python $(python.version)'
+
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.xml'
+    reportDirectory: '$(System.DefaultWorkingDirectory)/**/htmlcov'
+  displayName: 'Publish coverage results for Python $(python.version)'
