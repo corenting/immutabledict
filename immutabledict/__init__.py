@@ -7,7 +7,7 @@ from collections import OrderedDict
 __version__ = '0.1.0'
 
 
-class immutabledict(collections.Mapping):
+class immutabledict(collections.abc.Mapping):
     """
     An immutable wrapper around dictionaries that implements the complete :py:class:`collections.Mapping`
     interface. It can be used as a drop-in replacement for dictionaries where immutability is desired.
