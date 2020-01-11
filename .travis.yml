@@ -10,7 +10,7 @@ before_install:
 install:
   - poetry install
 script:
-  - if [[ $TRAVIS_PYTHON_VERSION != 3.5 ]]; then poetry run black --check; fi
+  - if [[ $TRAVIS_PYTHON_VERSION != 3.5 ]]; then poetry run black --check .; fi
   - poetry run isort **/*.py
   - poetry run pytest tests --cov=immutabledict
 after_success:

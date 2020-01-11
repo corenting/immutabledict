@@ -9,11 +9,11 @@ class TestImmutableDict:
             immutabledict().setitem("key", "value")
 
     def test_from_keys(self):
-        keys = ('a', 'b', 'c')
+        keys = ("a", "b", "c")
         immutable_dict = immutabledict.fromkeys(keys)
-        assert 'a' in immutable_dict
-        assert 'b' in immutable_dict
-        assert 'c' in immutable_dict
+        assert "a" in immutable_dict
+        assert "b" in immutable_dict
+        assert "c" in immutable_dict
 
     def test_init_and_compare(self):
         normal_dict = {"a": "value", "b": "other_value"}
@@ -58,8 +58,8 @@ class TestImmutableDict:
     def test_repr(self):
         immutable_dict = immutabledict({"a": "value", "b": "other_value"})
         repr_ret = repr(immutable_dict)
-        assert repr_ret.startswith('<immutabledict')
-        assert repr_ret.endswith('>')
+        assert repr_ret.startswith("<immutabledict")
+        assert repr_ret.endswith(">")
 
     def test_hash(self):
         first_dict = immutabledict({"a": "value", "b": "other_value"})
@@ -67,14 +67,14 @@ class TestImmutableDict:
 
         assert hash(first_dict) == hash(second_dict)
 
-class ImmutableOrderedDict:
 
+class ImmutableOrderedDict:
     def test_ordered(self):
         ordered = ImmutableOrderedDict()
-        ordered['a'] = '1'
-        ordered['b'] = '2'
-        ordered['c'] = '3'
+        ordered["a"] = "1"
+        ordered["b"] = "2"
+        ordered["c"] = "3"
         itered_keys = {x for x in immutable_dict}
-        assert itered_keys[0] == 'a'
-        assert itered_keys[1] == 'b'
-        assert itered_keys[2] == 'c'
+        assert itered_keys[0] == "a"
+        assert itered_keys[1] == "b"
+        assert itered_keys[2] == "c"
