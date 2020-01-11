@@ -3,6 +3,13 @@ name = "immutabledict"
 version = "0.1.0"
 description = "Immutable wrapper around dictionaries"
 authors = ["Corentin Garcia <corenting@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/corenting/immutabledict"
+keywords = ["immutable", "dictionary"]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/corenting/immutabledict/issues"
 
 [tool.poetry.dependencies]
 python = "^3.5"
