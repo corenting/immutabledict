@@ -1,6 +1,6 @@
 # immutabledict
 
-![Build](https://img.shields.io/travis/com/corenting/immutabledict)
+![Build](https://img.shields.io/travis/com/corenting/immutabledict) ![Codecov](https://img.shields.io/codecov/c/github/corenting/immutabledict) ![GitHub](https://img.shields.io/github/license/corenting/immutabledict)
 
 A fork of ``frozendict``, an immutable wrapper around dictionaries for Python >=3.5.
 
