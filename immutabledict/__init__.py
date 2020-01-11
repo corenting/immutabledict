@@ -3,11 +3,12 @@ import functools
 import operator
 import sys
 from collections import OrderedDict
+from collections.abc import Mapping
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 
-class immutabledict(collections.abc.Mapping):
+class immutabledict(Mapping):
     """
     An immutable wrapper around dictionaries that implements the complete :py:class:`collections.Mapping`
     interface. It can be used as a drop-in replacement for dictionaries where immutability is desired.
