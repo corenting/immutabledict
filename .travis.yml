@@ -13,4 +13,4 @@ script:
   - poetry run isort **/*.py
   - poetry run pytest tests --cov=immutabledict
 after_success:
-  - codecov
+  - bash <(curl -s https://codecov.io/bash)
