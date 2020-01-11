@@ -1,4 +1,6 @@
 language: python
+os: linux
+
 python:
   - "3.5"
   - "3.6"
@@ -11,22 +13,23 @@ install:
   - poetry install
 script:
   - if [[ $TRAVIS_PYTHON_VERSION != 3.5 ]]; then poetry run black --check .; fi
-  - poetry run isort **/*.py
+  - poetry run isort --check-only **/*.py
   - poetry run pytest tests --cov=immutabledict
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
-before_deploy:
-  - pip install --upgrade pip
-  - pip install poetry
-  - poetry config pypi-token.pypi $PYPI_TOKEN
-  - poetry build
-
 jobs:
   include:
     - stage: deploy
-      script: poetry publish
+      script: skip
+      if: tag IS present
       python: "3.8"
-      skip_cleanup: true
-      on:
-        tags: true
+      before_deploy:
+        - poetry config pypi-token.pypi $PYPI_TOKEN
+        - poetry build
+      deploy:
+        provider: script
+        script: poetry publish
+        skip_cleanup: true
+        on:
+          tags: true
