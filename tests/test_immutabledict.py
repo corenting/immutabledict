@@ -8,6 +8,13 @@ class TestImmutableDict:
         with pytest.raises(AttributeError):
             immutabledict().setitem("key", "value")
 
+    def test_from_keys(self):
+        keys = ('a', 'b', 'c')
+        immutable_dict = immutabledict.fromkeys(keys)
+        assert 'a' in immutable_dict
+        assert 'b' in immutable_dict
+        assert 'c' in immutable_dict
+
     def test_init_and_compare(self):
         normal_dict = {"a": "value", "b": "other_value"}
         immutable_dict = immutabledict(normal_dict)
