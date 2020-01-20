@@ -58,8 +58,13 @@ class TestImmutableDict:
     def test_repr(self):
         immutable_dict = immutabledict({"a": "value", "b": "other_value"})
         repr_ret = repr(immutable_dict)
-        assert repr_ret.startswith("<immutabledict")
-        assert repr_ret.endswith(">")
+        assert repr_ret.startswith("immutabledict")
+        assert repr_ret.endswith(")")
+
+    def test_repr_should_eval(self):
+        immutable_dict = immutabledict({"a": "value", "b": "other_value"})
+        eval_ret = eval(repr(immutable_dict))
+        assert immutable_dict == eval_ret
 
     def test_hash(self):
         first_dict = immutabledict({"a": "value", "b": "other_value"})
