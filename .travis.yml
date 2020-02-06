@@ -1,6 +1,11 @@
 language: python
 os: linux
 
+cache:
+  pip: true
+  directories:
+    - $HOME/.cache/pypoetry
+
 python:
   - "3.5"
   - "3.6"
