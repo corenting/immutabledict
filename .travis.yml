@@ -11,6 +11,8 @@ python:
   - "3.6"
   - "3.7"
   - "3.8"
+  - "3.9-dev"
+  - "pypy3"
 before_install:
   - pip install --upgrade pip
   - pip install poetry
@@ -24,6 +26,8 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 jobs:
+  allow_failures:
+    - python: "3.9-dev"
   include:
     - stage: deploy
       script: skip
