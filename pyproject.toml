@@ -1,12 +1,16 @@
 [tool.poetry]
 name = "immutabledict"
-version = "0.2.0"
-description = "Immutable wrapper around dictionaries"
+version = "1.0.0"
+description = "Immutable wrapper around dictionaries (a fork of frozendict)"
 authors = ["Corentin Garcia <corenting@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/corenting/immutabledict"
 keywords = ["immutable", "dictionary"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/corenting/immutabledict/issues"
