@@ -22,7 +22,7 @@ python = "^3.5"
 black = {version = "^19.10b0", python = "^3.6"}
 pytest = "^5.4"
 isort = "^4.3.21"
-pytest-cov = "^2.8.1"
+pytest-cov = "^2.9.0"
 
 [build-system]
 requires = ["poetry>=0.12"]
