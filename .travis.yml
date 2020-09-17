@@ -1,5 +1,6 @@
 language: python
 os: linux
+virt: lxd
 
 cache:
   pip: true
@@ -12,15 +13,14 @@ python:
   - "3.7"
   - "3.8"
   - "3.9-dev"
-  - "pypy3"
 before_install:
   - pip install --upgrade pip
   - pip install poetry
 install:
   - poetry install
 script:
-  - if [[ $TRAVIS_PYTHON_VERSION != 3.5 ]]; then poetry run black --check .; fi
-  - poetry run isort --check-only **/*.py
+  - if [[ $TRAVIS_PYTHON_VERSION = 3.8 ]]; then poetry run black --check .; fi
+  - if [[ $TRAVIS_PYTHON_VERSION = 3.8 ]]; then poetry run isort --check-only **/*.py; fi
   - poetry run pytest tests --cov=immutabledict
 after_success:
   - bash <(curl -s https://codecov.io/bash)
@@ -28,7 +28,6 @@ after_success:
 jobs:
   allow_failures:
     - python: "3.9-dev"
-    - python: "pypy3"
   include:
     - stage: deploy
       script: skip
@@ -40,6 +39,5 @@ jobs:
       deploy:
         provider: script
         script: poetry publish
-        skip_cleanup: true
         on:
           tags: true
