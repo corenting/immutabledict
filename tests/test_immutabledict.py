@@ -72,6 +72,20 @@ class TestImmutableDict:
 
         assert hash(first_dict) == hash(second_dict)
 
+    def test_union_operator_merge(self):
+        first_dict = immutabledict({"a": "value", "b": "other_value"})
+        second_dict = immutabledict({"a": "value", "b": "other_value"})
+
+        with pytest.raises(TypeError):
+            first_dict | second_dict
+
+    def test_union_operator_update(self):
+        first_dict = immutabledict({"a": "value", "b": "other_value"})
+        second_dict = immutabledict({"a": "value", "b": "other_value"})
+
+        with pytest.raises(TypeError):
+            first_dict |= second_dict
+
 
 class ImmutableOrderedDict:
     def test_ordered(self):
@@ -79,7 +93,7 @@ class ImmutableOrderedDict:
         ordered["a"] = "1"
         ordered["b"] = "2"
         ordered["c"] = "3"
-        itered_keys = {x for x in immutable_dict}
+        itered_keys = {x for x in ordered}
         assert itered_keys[0] == "a"
         assert itered_keys[1] == "b"
         assert itered_keys[2] == "c"

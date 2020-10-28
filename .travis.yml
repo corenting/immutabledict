@@ -1,6 +1,6 @@
 language: python
 os: linux
-virt: lxd
+dist: focal
 
 cache:
   pip: true
@@ -8,31 +8,27 @@ cache:
     - $HOME/.cache/pypoetry
 
 python:
-  - "3.5"
   - "3.6"
   - "3.7"
   - "3.8"
-  - "3.9-dev"
+  - "3.9"
 before_install:
   - pip install --upgrade pip
   - pip install poetry
 install:
   - poetry install
 script:
-  - if [[ $TRAVIS_PYTHON_VERSION = 3.8 ]]; then poetry run black --check .; fi
-  - if [[ $TRAVIS_PYTHON_VERSION = 3.8 ]]; then poetry run isort --check-only **/*.py; fi
+  - if [[ $TRAVIS_PYTHON_VERSION = 3.9 ]]; then make style; fi
   - poetry run pytest tests --cov=immutabledict
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 jobs:
-  allow_failures:
-    - python: "3.9-dev"
   include:
     - stage: deploy
       script: skip
       if: tag IS present
-      python: "3.8"
+      python: "3.9"
       before_deploy:
         - poetry config pypi-token.pypi $PYPI_TOKEN
         - poetry build

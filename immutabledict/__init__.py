@@ -1,7 +1,3 @@
-import collections
-import functools
-import operator
-import sys
 from collections import OrderedDict
 from collections.abc import Mapping
 
