@@ -21,7 +21,7 @@ script:
   - if [[ $TRAVIS_PYTHON_VERSION = 3.9 ]]; then make style; fi
   - poetry run pytest tests --cov=immutabledict
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - if [[ $TRAVIS_PYTHON_VERSION = 3.9 ]]; then bash <(curl -s https://codecov.io/bash); fi
 
 jobs:
   include:
