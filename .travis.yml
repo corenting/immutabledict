@@ -35,5 +35,6 @@ jobs:
       deploy:
         provider: script
         script: poetry publish
+        skip_cleanup: true
         on:
           tags: true
