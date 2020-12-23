@@ -15,6 +15,57 @@ class TestImmutableDict:
         assert "b" in immutable_dict
         assert "c" in immutable_dict
 
+    def test_from_nested(self):
+        nested = {
+            "a": {
+                "a": {
+                    "a": {},
+                    "b": [],
+                    "c": "c",
+                },
+                "b": [
+                    {"a": "a"},
+                    ["b"],
+                    "c",
+                ],
+                "c": "c",
+            },
+            "b": [
+                {"a": "a"},
+                ["b"],
+                "c",
+            ],
+            "c": "c",
+        }
+        value = immutabledict.fromnested(nested)
+        assert value == {
+            "a": {
+                "a": {
+                    "a": {},
+                    "b": [],
+                    "c": "c",
+                },
+                "b": [
+                    {"a": "a"},
+                    ["b"],
+                    "c",
+                ],
+                "c": "c",
+            },
+            "b": [
+                {"a": "a"},
+                ["b"],
+                "c",
+            ],
+            "c": "c",
+        }
+        assert isinstance(value, immutabledict)
+        assert isinstance(value["a"], immutabledict)
+        assert isinstance(value["a"]["a"], immutabledict)
+        assert isinstance(value["a"]["a"]["a"], immutabledict)
+        assert isinstance(value["a"]["b"][0], immutabledict)
+        assert isinstance(value["b"][0], immutabledict)
+
     def test_init_and_compare(self):
         normal_dict = {"a": "value", "b": "other_value"}
         immutable_dict = immutabledict(normal_dict)

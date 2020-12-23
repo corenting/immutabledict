@@ -16,6 +16,20 @@ class immutabledict(Mapping):
     def fromkeys(cls, seq, value=None, *args, **kwargs):
         return cls(dict.fromkeys(seq, value, *args, **kwargs))
 
+    @classmethod
+    def fromnested(cls, mapping):
+        """Create immutabledict from nested mapping"""
+
+        def inner(value):
+            if isinstance(value, dict):
+                return cls({k: inner(v) for k, v in value.items()})
+            elif isinstance(value, (list, tuple)):
+                return [inner(v) for v in value]
+            else:
+                return value
+
+        return inner(mapping)
+
     def __init__(self, *args, **kwargs):
         self._dict = self.dict_cls(*args, **kwargs)
         self._hash = None
