@@ -46,6 +46,23 @@ class immutabledict(Mapping):
             self._hash = h
         return self._hash
 
+    def __or__(self, other):
+        if not isinstance(other, (dict, self.__class__)):
+            return NotImplemented
+        new = dict(self)
+        new.update(other)
+        return self.__class__(new)
+
+    def __ror__(self, other):
+        if not isinstance(other, (dict, self.__class__)):
+            return NotImplemented
+        new = dict(other)
+        new.update(self)
+        return new
+
+    def __ior__(self, other):
+        raise TypeError("'%s' object is not mutable", self.__class__.__name__)
+
 
 class ImmutableOrderedDict(immutabledict):
     """

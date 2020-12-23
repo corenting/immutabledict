@@ -73,18 +73,71 @@ class TestImmutableDict:
         assert hash(first_dict) == hash(second_dict)
 
     def test_union_operator_merge(self):
-        first_dict = immutabledict({"a": "value", "b": "other_value"})
-        second_dict = immutabledict({"a": "value", "b": "other_value"})
+        first_dict = immutabledict({"a": "a", "b": "b"})
+        second_dict = immutabledict({"a": "A", "c": "c"})
+        merged_dict = first_dict | second_dict
+        assert isinstance(merged_dict, immutabledict)
+        assert merged_dict == {
+            "a": "A",
+            "b": "b",
+            "c": "c",
+        }
+        assert first_dict == {"a": "a", "b": "b"}
+        assert second_dict == {"a": "A", "c": "c"}
 
-        with pytest.raises(TypeError):
-            first_dict | second_dict
+    def test_union_operator_merge_with_dict(self):
+        first_dict = dict({"a": "a", "b": "b"})
+        second_dict = immutabledict({"a": "A", "c": "c"})
+        merged_dict = first_dict | second_dict
+        assert isinstance(merged_dict, dict)
+        assert merged_dict == {
+            "a": "A",
+            "b": "b",
+            "c": "c",
+        }
+        assert first_dict == {"a": "a", "b": "b"}
+        assert second_dict == {"a": "A", "c": "c"}
+
+        first_dict = immutabledict({"a": "a", "b": "b"})
+        second_dict = dict({"a": "A", "c": "c"})
+        merged_dict = first_dict | second_dict
+        assert isinstance(merged_dict, immutabledict)
+        assert merged_dict == {
+            "a": "A",
+            "b": "b",
+            "c": "c",
+        }
+        assert first_dict == {"a": "a", "b": "b"}
+        assert second_dict == {"a": "A", "c": "c"}
 
     def test_union_operator_update(self):
-        first_dict = immutabledict({"a": "value", "b": "other_value"})
-        second_dict = immutabledict({"a": "value", "b": "other_value"})
+        first_dict = immutabledict({"a": "a", "b": "b"})
+        second_dict = immutabledict({"a": "A", "c": "c"})
 
         with pytest.raises(TypeError):
             first_dict |= second_dict
+
+    def test_union_operator_update_with_dict(self):
+        first_dict = dict({"a": "a", "b": "b"})
+        second_dict = immutabledict({"a": "A", "c": "c"})
+
+        first_dict |= second_dict
+        assert isinstance(first_dict, dict)
+        assert first_dict == {
+            "a": "A",
+            "b": "b",
+            "c": "c",
+        }
+        assert second_dict == {"a": "A", "c": "c"}
+
+        first_dict = immutabledict({"a": "a", "b": "b"})
+        second_dict = dict({"a": "A", "c": "c"})
+
+        with pytest.raises(TypeError):
+            first_dict |= second_dict
+        assert isinstance(first_dict, immutabledict)
+        assert first_dict == {"a": "a", "b": "b"}
+        assert second_dict == {"a": "A", "c": "c"}
 
 
 class ImmutableOrderedDict:
