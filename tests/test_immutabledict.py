@@ -110,6 +110,15 @@ class TestImmutableDict:
         assert first_dict == {"a": "a", "b": "b"}
         assert second_dict == {"a": "A", "c": "c"}
 
+    def test_union_operator_merge_fail(self):
+        first_dict = immutabledict({"a": "a", "b": "b"})
+
+        with pytest.raises(TypeError):
+            first_dict | 0
+
+        with pytest.raises(TypeError):
+            0 | first_dict
+
     def test_union_operator_update(self):
         first_dict = immutabledict({"a": "a", "b": "b"})
         second_dict = immutabledict({"a": "A", "c": "c"})
