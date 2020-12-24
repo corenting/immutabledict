@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "immutabledict"
-version = "1.1.0"
+version = "1.2.0"
 description = "Immutable wrapper around dictionaries (a fork of frozendict)"
 authors = ["Corentin Garcia <corenting@gmail.com>"]
 license = "MIT"

@@ -1,7 +1,7 @@
 from collections import OrderedDict
 from collections.abc import Mapping
 
-__version__ = "1.1.0"
+__version__ = "1.2.0"
 
 
 class immutabledict(Mapping):

@@ -1,3 +1,7 @@
+# Version 1.2.0
+
+- Support [PEP 584 union operators](https://www.python.org/dev/peps/pep-0584/). Thanks to @lambdalisue for the [PR #34](https://github.com/corenting/immutabledict/pull/34).
+
 # Version 1.1.0
 
 - Add Python 3.9 to supported versions, remove Python 3.5
