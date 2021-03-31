@@ -21,7 +21,7 @@ python = "^3.6"
 [tool.poetry.dev-dependencies]
 black = {version = "^20.8b1", python = "^3.6"}
 pytest = "^6.2"
-isort = {version = "^5.7", python = "^3.6"}
+isort = {version = "^5.8", python = "^3.6"}
 pytest-cov = "^2.11"
 
 [build-system]
