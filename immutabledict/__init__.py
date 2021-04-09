@@ -1,10 +1,27 @@
+import sys
 from collections import OrderedDict
-from collections.abc import Mapping
+from typing import Dict, TypeVar
+
+if sys.version_info >= (3, 7):
+    from typing import Mapping
+else:  # pragma: no cover
+    from collections.abc import Mapping as _BaseMapping
+
+    class _MappingMeta(type):
+        def __getitem__(self, *args):
+            return _BaseMapping
+
+    class Mapping(metaclass=_MappingMeta):
+        pass
+
 
 __version__ = "1.2.0"
 
+_K = TypeVar("_K")
+_V = TypeVar("_V")
 
-class immutabledict(Mapping):
+
+class immutabledict(Mapping[_K, _V]):
     """
     An immutable wrapper around dictionaries that implements the complete :py:class:`collections.Mapping`
     interface. It can be used as a drop-in replacement for dictionaries where immutability is desired.
@@ -26,7 +43,7 @@ class immutabledict(Mapping):
     def __contains__(self, key):
         return key in self._dict
 
-    def copy(self, **add_or_replace):
+    def copy(self, **add_or_replace: Dict[_K, _V]) -> "immutabledict[_K, _V]":
         return self.__class__(self, **add_or_replace)
 
     def __iter__(self):
