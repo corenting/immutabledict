@@ -30,3 +30,5 @@ print(my_item["a"]) # Print "value"
 
 - Dropped support of Python < 3.6 (version 1.0.0 supports Python 3.5)
 - Fixed `collections.Mapping` deprecation warning
+- Typing
+- [PEP 584 union operators](https://www.python.org/dev/peps/pep-0584/)

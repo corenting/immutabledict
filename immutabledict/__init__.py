@@ -15,7 +15,7 @@ else:  # pragma: no cover
         pass
 
 
-__version__ = "1.2.0"
+__version__ = "1.3.0"
 
 _K = TypeVar("_K")
 _V = TypeVar("_V")
