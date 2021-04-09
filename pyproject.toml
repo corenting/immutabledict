@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "immutabledict"
-version = "1.2.0"
+version = "1.3.0"
 description = "Immutable wrapper around dictionaries (a fork of frozendict)"
 authors = ["Corentin Garcia <corenting@gmail.com>"]
 license = "MIT"
@@ -13,6 +13,7 @@ classifiers = [
 ]
 
 [tool.poetry.urls]
+"Changelog" = "https://github.com/corenting/immutabledict/blob/master/CHANGELOG.md"
 "Bug Tracker" = "https://github.com/corenting/immutabledict/issues"
 
 [tool.poetry.dependencies]
