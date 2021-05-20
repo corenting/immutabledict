@@ -20,13 +20,24 @@ classifiers = [
 python = "^3.6"
 
 [tool.poetry.dev-dependencies]
-black = {version = "^20.8b1", python = "^3.6"}
-pytest = "^6.2"
-isort = {version = "^5.8", python = "^3.6"}
-pytest-cov = "^2.11"
-mypy = "^0.812"
-tox = "^3.23.1"
+black = {version = "*", python = ">=3.7"}
+flake8 = "*"
+isort = {version = "*", python = ">=3.7"}
+mypy = "*"
+pdbpp = "*"
+pyproject-flake8 = "*"
+pytest = "*"
+pytest-cov = "*"
+tox = "^*"
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.flake8]
+max_line_length = 88
+extend-ignore = "D100,D101,D104,E501"
 
 [build-system]
-requires = ["poetry>=1.1.5"]
-build-backend = "poetry.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
