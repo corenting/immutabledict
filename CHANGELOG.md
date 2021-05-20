@@ -1,3 +1,9 @@
+# Version 2.0
+
+- Support more typing (fix [issue #47](https://github.com/corenting/immutabledict/issues/47))
+- ⚠️ Remove `*args, **kwargs` from the `fromkeys()` method.
+
+
 # Version 1.3.0
 
 - Add typing. Thanks to [@aecay](https://github.com/aecay) for the [PR #45](https://github.com/corenting/immutabledict/pull/45).

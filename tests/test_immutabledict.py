@@ -27,7 +27,7 @@ class TestImmutableDict:
     def test_get_not_existing(self):
         immutable_dict = immutabledict({"a": "value"})
         with pytest.raises(KeyError):
-            test_get = immutable_dict["b"]
+            immutable_dict["b"]
 
     def test_contains(self):
         immutable_dict = immutabledict({"a": "value"})
@@ -149,13 +149,16 @@ class TestImmutableDict:
         assert second_dict == {"a": "A", "c": "c"}
 
 
-class ImmutableOrderedDict:
+class TestImmutableOrderedDict:
     def test_ordered(self):
-        ordered = ImmutableOrderedDict()
-        ordered["a"] = "1"
-        ordered["b"] = "2"
-        ordered["c"] = "3"
-        itered_keys = {x for x in ordered}
+        ordered = ImmutableOrderedDict(
+            {
+                "a": "1",
+                "b": "2",
+                "c": "3",
+            }
+        )
+        itered_keys = [x for x in ordered]
         assert itered_keys[0] == "a"
         assert itered_keys[1] == "b"
         assert itered_keys[2] == "c"
