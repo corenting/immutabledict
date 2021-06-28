@@ -17,4 +17,4 @@ style:
 .PHONY: test
 .SILENT: test
 test:
-	$(PYTHON) pytest tests --cov=immutabledict
+	$(PYTHON) pytest tests --cov=immutabledict --cov-report=xml
