@@ -1,8 +1,11 @@
-# Version 2.0
+# Version 2.1.0
+
+- Fix type annotation on keyword argument in copy(**add_or_replace). Thanks to [@techsy730](https://github.com/techsy730) for the [PR #54](https://github.com/corenting/immutabledict/pull/54).
+
+# Version 2.0.0
 
 - Support more typing (fix [issue #47](https://github.com/corenting/immutabledict/issues/47))
 - ⚠️ Remove `*args, **kwargs` from the `fromkeys()` method.
-
 
 # Version 1.3.0
 
