@@ -1,16 +1,15 @@
-name: CI
+name: Release
 on:
   push:
     branches: [ master ]
+    tags:
+      - '*'
   pull_request:
     branches: [ master ]
 
 
 jobs:
-  ci:
-    strategy:
-      matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -18,16 +17,21 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.9
       - name: Install Poetry
         run: pip install poetry
       - name: Setup environment
         run: poetry install
       - name: Style
-        if: ${{ matrix.python-version == '3.9' }}  # to run only once
         run: make style
       - name: Test
         run: make test
       - name: Codecov
         uses: codecov/codecov-action@v1
-        if: ${{ matrix.python-version == '3.9' }}  # to run only once
+      - name: Publish on PyPI
+        run: |
+          poetry config pypi-token.pypi $PYPI_TOKEN
+          poetry build
+          poetry publish
+        env:
+          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
