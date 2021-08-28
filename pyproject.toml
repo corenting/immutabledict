@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "immutabledict"
-version = "2.1.0"
+version = "2.2.0"
 description = "Immutable wrapper around dictionaries (a fork of frozendict)"
 authors = ["Corentin Garcia <corenting@gmail.com>"]
 license = "MIT"
@@ -38,6 +38,10 @@ multi_line_output = 3
 max_line_length = 88
 extend-ignore = "D100,D101,D104,E501"
 
+[tool.mypy]
+ignore_missing_imports = true
+disallow_untyped_defs = true
+
 [build-system]
-requires = ["poetry>=1.1.5"]
-build-backend = "poetry.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
