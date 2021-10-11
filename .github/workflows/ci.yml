@@ -10,7 +10,7 @@ jobs:
   ci:
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: ["3.6", "3.7", "3.8", "3.9", "3.10"]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -24,10 +24,11 @@ jobs:
       - name: Setup environment
         run: poetry install
       - name: Style
-        if: ${{ matrix.python-version == '3.9' }}  # to run only once
+        if: ${{ matrix.python-version == '3.10' }}  # to run only once
         run: make style
       - name: Test
         run: make test
       - name: Codecov
-        uses: codecov/codecov-action@v1
-        if: ${{ matrix.python-version == '3.9' }}  # to run only once
+        uses: codecov/codecov-action@v2
+        with:
+          flags: ${{ matrix.python-version }}
