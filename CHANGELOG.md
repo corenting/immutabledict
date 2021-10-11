@@ -1,6 +1,11 @@
+# Version 2.2.1
+
+- Update classifiers, Github Actions... for Python 3.10 (no code changes)
+
 # Version 2.2.0
 
 - Use `poetry-core` instead of poetry for build-system. Thanks to [@mweinelt](https://github.com/mweinelt) for reporting [the issue](https://github.com/corenting/immutabledict/issues/56).
+
 # Version 2.1.0
 
 - Fix type annotation on keyword argument in copy(**add_or_replace). Thanks to [@techsy730](https://github.com/techsy730) for the [PR #54](https://github.com/corenting/immutabledict/pull/54).
