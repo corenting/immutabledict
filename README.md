@@ -28,7 +28,7 @@ print(my_item["a"]) # Print "value"
 
 ## Differences with frozendict
 
-- Dropped support of Python < 3.6 (version 1.0.0 supports Python 3.5)
+- Dropped support of EOL Python versions (version 1.0.0 supports Python 3.5, versions <= 2.2.1 supports Python 3.6)
 - Fixed `collections.Mapping` deprecation warning
 - Typing
 - [PEP 584 union operators](https://www.python.org/dev/peps/pep-0584/)

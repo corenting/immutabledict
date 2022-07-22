@@ -1,19 +1,5 @@
-import sys
 from collections import OrderedDict
-from typing import Any, Dict, Iterable, Iterator, Optional, Type, TypeVar
-
-if sys.version_info >= (3, 7):
-    from typing import Mapping
-else:  # pragma: no cover
-    from collections.abc import Mapping as _BaseMapping
-
-    class _MappingMeta(type):
-        def __getitem__(self, *args):
-            return _BaseMapping
-
-    class Mapping(metaclass=_MappingMeta):
-        pass
-
+from typing import Any, Dict, Iterable, Iterator, Mapping, Optional, Type, TypeVar
 
 __version__ = "2.2.1"
 

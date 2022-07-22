@@ -17,12 +17,13 @@ classifiers = [
 "Bug Tracker" = "https://github.com/corenting/immutabledict/issues"
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.7"
 
 [tool.poetry.dev-dependencies]
-black = {version = "*", python = ">=3.7"}
+black = "*"
+coverage = "*"
 flake8 = "*"
-isort = {version = "*", python = ">=3.7"}
+isort = "*"
 mypy = "*"
 pdbpp = "*"
 pyproject-flake8 = "*"
