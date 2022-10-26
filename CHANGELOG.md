@@ -1,3 +1,7 @@
+# Version 2.2.2
+
+- Update classifiers, Github Actions... for Python 3.11 (no code changes)
+
 # Version 2.2.1
 
 - Update classifiers, Github Actions... for Python 3.10 (no code changes)
