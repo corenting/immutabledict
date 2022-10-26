@@ -29,7 +29,7 @@ pdbpp = "*"
 pyproject-flake8 = "*"
 pytest = "*"
 pytest-cov = "*"
-tox = "^*"
+tox = "*"
 
 [tool.isort]
 profile = "black"
@@ -44,5 +44,5 @@ ignore_missing_imports = true
 disallow_untyped_defs = true
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
