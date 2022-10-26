@@ -1,7 +1,7 @@
 from collections import OrderedDict
 from typing import Any, Dict, Iterable, Iterator, Mapping, Optional, Type, TypeVar
 
-__version__ = "2.2.1"
+__version__ = "2.2.2"
 
 _K = TypeVar("_K")
 _V = TypeVar("_V")
