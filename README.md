@@ -4,7 +4,8 @@
 
 ![License](https://img.shields.io/pypi/l/immutabledict) ![Build](https://img.shields.io/github/workflow/status/corenting/immutabledict/CI/master) ![Codecov](https://img.shields.io/codecov/c/github/corenting/immutabledict) ![PyPI - Downloads](https://img.shields.io/pypi/dm/immutabledict)
 
-A fork of the original [frozendict](https://github.com/slezica/python-frozendict), an immutable wrapper around dictionaries. This library is an alternative to the new [frozendict](https://github.com/Marco-Sulla/python-frozendict).
+A fork of the original [frozendict](https://github.com/slezica/python-frozendict), an immutable wrapper around dictionaries.
+This library is an MIT-licensed alternative to the new LGPL-3.0 licensed [frozendict](https://github.com/Marco-Sulla/python-frozendict).
 
 It implements the complete mapping interface and can be used as a drop-in replacement for dictionaries where immutability is desired.
 The immutabledict constructor mimics dict, and all of the expected interfaces (iter, len, repr, hash, getitem) are provided. Note that an immutabledict does not guarantee the immutability of its values, so the utility of hash method is restricted by usage.
@@ -26,7 +27,7 @@ my_item = immutabledict({"a": "value", "b": "other_value"})
 print(my_item["a"]) # Print "value"
 ```
 
-## Differences with frozendict
+## Differences with the old original frozendict package
 
 - Dropped support of EOL Python versions (version 1.0.0 supports Python 3.5, versions <= 2.2.1 supports Python 3.6)
 - Fixed `collections.Mapping` deprecation warning
