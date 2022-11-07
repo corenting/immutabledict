@@ -1,3 +1,4 @@
+from __future__ import annotations
 from collections import OrderedDict
 from typing import Any, Dict, Iterable, Iterator, Mapping, Optional, Type, TypeVar
 
@@ -31,7 +32,7 @@ class immutabledict(Mapping[_K, _V]):
     def __contains__(self, key: object) -> bool:
         return key in self._dict
 
-    def copy(self, **add_or_replace: _V) -> "immutabledict[_K, _V]":
+    def copy(self, **add_or_replace: _V) -> immutabledict[_K, _V]:
         return self.__class__(self, **add_or_replace)
 
     def __iter__(self) -> Iterator[_K]:
@@ -52,7 +53,7 @@ class immutabledict(Mapping[_K, _V]):
 
         return self._hash
 
-    def __or__(self, other: Any) -> "immutabledict[_K, _V]":
+    def __or__(self, other: Any) -> immutabledict[_K, _V]:
         if not isinstance(other, (dict, self.__class__)):
             return NotImplemented
         new = dict(self)
@@ -66,7 +67,7 @@ class immutabledict(Mapping[_K, _V]):
         new.update(self)
         return new
 
-    def __ior__(self, other: Any) -> "immutabledict[_K, _V]":
+    def __ior__(self, other: Any) -> immutabledict[_K, _V]:
         raise TypeError(f"'{self.__class__.__name__}' object is not mutable")
 
 
