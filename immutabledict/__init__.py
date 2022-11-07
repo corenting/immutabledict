@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections import OrderedDict
 from typing import Any, Dict, Iterable, Iterator, Mapping, Optional, Type, TypeVar
 
-__version__ = "2.2.2"
+__version__ = "2.2.3"
 
 _K = TypeVar("_K")
 _V = TypeVar("_V")

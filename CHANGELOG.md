@@ -1,3 +1,9 @@
+# Version 2.2.3
+
+- Fix TypeError message when using `|=`. Thanks to [@ronshapiro](https://github.com/ronshapiro) for the [PR #66](https://github.com/corenting/immutabledict/pull/66)
+- Update docstring for ImmutableOrderedDict to indicate that is not needed anymore for Python >= 3.7 but kept for compatibility purposes
+- Use postponed evaluation of annotations ([PEP 563](https://peps.python.org/pep-0563/)) for the typing
+
 # Version 2.2.2
 
 - Update classifiers, Github Actions... for Python 3.11 (no code changes)
