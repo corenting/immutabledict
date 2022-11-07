@@ -75,8 +75,8 @@ class ImmutableOrderedDict(immutabledict):
     """
     An immutabledict subclass that maintains key order.
 
-    Not necessary for Python >= 3.7 where order is guaranteed with the normal
-    immutabledict class.
+    Not necessary anymore as for Python >= 3.7 order is guaranteed with the normal
+    immutabledict class, but kept for compatibility purpose.
     """
 
     dict_cls = OrderedDict
