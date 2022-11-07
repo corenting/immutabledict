@@ -67,7 +67,7 @@ class immutabledict(Mapping[_K, _V]):
         return new
 
     def __ior__(self, other: Any) -> "immutabledict[_K, _V]":
-        raise TypeError("'%s' object is not mutable", self.__class__.__name__)
+        raise TypeError(f"'{self.__class__.__name__}' object is not mutable")
 
 
 class ImmutableOrderedDict(immutabledict):
