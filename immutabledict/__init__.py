@@ -11,8 +11,10 @@ _V = TypeVar("_V")
 
 class immutabledict(Mapping[_K, _V]):
     """
-    An immutable wrapper around dictionaries that implements the complete :py:class:`collections.Mapping`
-    interface. It can be used as a drop-in replacement for dictionaries where immutability is desired.
+    An immutable wrapper around dictionaries that implements
+    the complete :py:class:`collections.Mapping` interface.
+    It can be used as a drop-in replacement for dictionaries
+    where immutability is desired.
     """
 
     dict_cls: Type[Dict[Any, Any]] = dict

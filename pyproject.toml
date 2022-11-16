@@ -22,22 +22,15 @@ python = "^3.7"
 [tool.poetry.dev-dependencies]
 black = "*"
 coverage = "*"
-flake8 = "*"
-isort = "*"
 mypy = "*"
 pdbpp = "*"
-pyproject-flake8 = "*"
 pytest = "*"
 pytest-cov = "*"
+ruff = "*"
 tox = "*"
 
-[tool.isort]
-profile = "black"
-multi_line_output = 3
-
-[tool.flake8]
-max_line_length = 88
-extend-ignore = "D100,D101,D104,E501"
+[tool.ruff]
+line-length = 88
 
 [tool.mypy]
 ignore_missing_imports = true
