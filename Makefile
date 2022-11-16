@@ -3,14 +3,13 @@ PYTHON=poetry run
 .PHONY: format
 format:
 	$(PYTHON) black immutabledict tests
-	$(PYTHON) isort immutabledict tests
+	$(PYTHON) ruff --fix immutabledict tests
 
 .PHONY: style
 style:
 	$(PYTHON) black --check immutabledict tests
-	$(PYTHON) isort --check-only  immutabledict tests
+	$(PYTHON) ruff immutabledict tests
 	$(PYTHON) mypy -- immutabledict
-	$(PYTHON) pflake8 immutabledict tests
 
 .PHONY: test
 test:
