@@ -2,7 +2,7 @@
 
 ![PyPI](https://img.shields.io/pypi/v/immutabledict) ![Conda](https://img.shields.io/conda/vn/conda-forge/immutabledict) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/immutabledict)
 
-![License](https://img.shields.io/pypi/l/immutabledict) ![Build](https://img.shields.io/github/workflow/status/corenting/immutabledict/CI/master) ![Codecov](https://img.shields.io/codecov/c/github/corenting/immutabledict) ![PyPI - Downloads](https://img.shields.io/pypi/dm/immutabledict)
+![License](https://img.shields.io/pypi/l/immutabledict) ![Build](https://img.shields.io/github/checks-status/corenting/immutabledict/master?label=build) ![Codecov](https://img.shields.io/codecov/c/github/corenting/immutabledict) ![PyPI - Downloads](https://img.shields.io/pypi/dm/immutabledict)
 
 A fork of the original [frozendict](https://github.com/slezica/python-frozendict), an immutable wrapper around dictionaries.
 This library is an MIT-licensed alternative to the new LGPL-3.0 licensed [frozendict](https://github.com/Marco-Sulla/python-frozendict).
