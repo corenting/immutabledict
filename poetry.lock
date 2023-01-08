@@ -341,7 +341,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "tox"
-version = "4.2.4"
+version = "4.2.5"
 description = "tox is a generic virtualenv management and test command line tool"
 category = "dev"
 optional = false
@@ -637,8 +637,8 @@ tomli = [
     {file = "tomli-2.0.1.tar.gz", hash = "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"},
 ]
 tox = [
-    {file = "tox-4.2.4-py3-none-any.whl", hash = "sha256:f51407aaff87f6f5361ae2733cffd371940ed001792b60ea50d955c266b3b22b"},
-    {file = "tox-4.2.4.tar.gz", hash = "sha256:05b1cbf94e02eff40818860b352b4a452d7369558f3bb05809043c6b4c36e5f4"},
+    {file = "tox-4.2.5-py3-none-any.whl", hash = "sha256:a256447ec85a058004231f19ca3df66b3be591a7561c8f8389d1d60b5b629989"},
+    {file = "tox-4.2.5.tar.gz", hash = "sha256:dba263a7da1151e3f7c0816bf9efcbad127ee7ec981e5f03b9666b47619c735e"},
 ]
 typed-ast = [
     {file = "typed_ast-1.5.4-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:669dd0c4167f6f2cd9f57041e03c3c2ebf9063d0757dc89f79ba1daa2bfca9d4"},
