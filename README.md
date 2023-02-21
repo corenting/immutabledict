@@ -17,6 +17,7 @@ The only difference is that the copy() method of immutable takes variable keywor
 Available as `immutabledict` on :
 - pypi
 - conda-forge (community-maintained, not an official release)
+- alpine as [py3-immutabledict](https://pkgs.alpinelinux.org/packages?name=py3-immutabledict)  (community-maintained, not an official release)
 
 ## Example
 
