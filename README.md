@@ -2,10 +2,10 @@
 
 ![PyPI](https://img.shields.io/pypi/v/immutabledict) ![Conda](https://img.shields.io/conda/vn/conda-forge/immutabledict) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/immutabledict)
 
-![License](https://img.shields.io/pypi/l/immutabledict) ![Build](https://img.shields.io/github/checks-status/corenting/immutabledict/master?label=build) ![Codecov](https://img.shields.io/codecov/c/github/corenting/immutabledict) ![PyPI - Downloads](https://img.shields.io/pypi/dm/immutabledict)
+![License](https://img.shields.io/pypi/l/immutabledict) ![Build](https://img.shields.io/github/actions/workflow/status/corenting/immutabledict/ci.yml?branch=master) ![Codecov](https://img.shields.io/codecov/c/github/corenting/immutabledict) ![PyPI - Downloads](https://img.shields.io/pypi/dm/immutabledict)
 
 A fork of the original [frozendict](https://github.com/slezica/python-frozendict), an immutable wrapper around dictionaries.
-This library is an MIT-licensed alternative to the new LGPL-3.0 licensed [frozendict](https://github.com/Marco-Sulla/python-frozendict).
+This library is a pure Python, MIT-licensed alternative to the new LGPL-3.0 licensed [frozendict](https://github.com/Marco-Sulla/python-frozendict).
 
 It implements the complete mapping interface and can be used as a drop-in replacement for dictionaries where immutability is desired.
 The immutabledict constructor mimics dict, and all of the expected interfaces (iter, len, repr, hash, getitem) are provided. Note that an immutabledict does not guarantee the immutability of its values, so the utility of hash method is restricted by usage.
@@ -15,8 +15,8 @@ The only difference is that the copy() method of immutable takes variable keywor
 ## Installation
 
 Available as `immutabledict` on :
-- pypi
-- conda-forge (community-maintained, not an official release)
+- [pypi](https://pypi.org/project/immutabledict/)
+- [conda-forge](https://anaconda.org/conda-forge/immutabledict) (community-maintained, not an official release)
 - alpine as [py3-immutabledict](https://pkgs.alpinelinux.org/packages?name=py3-immutabledict)  (community-maintained, not an official release)
 
 ## Example
