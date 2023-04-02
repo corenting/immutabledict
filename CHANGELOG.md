@@ -1,3 +1,7 @@
+# Version 2.2.4
+
+- Include tests in sdist for easier packaging
+
 # Version 2.2.3
 
 - Fix TypeError message when using `|=`. Thanks to [@ronshapiro](https://github.com/ronshapiro) for the [PR #66](https://github.com/corenting/immutabledict/pull/66)
