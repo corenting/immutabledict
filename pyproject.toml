@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "immutabledict"
-version = "2.2.3"
+version = "2.2.4"
 description = "Immutable wrapper around dictionaries (a fork of frozendict)"
 authors = ["Corentin Garcia <corenting@gmail.com>"]
 license = "MIT"
@@ -10,6 +10,9 @@ keywords = ["immutable", "dictionary"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Topic :: Software Development :: Libraries :: Python Modules"
+]
+include = [
+    { path = "tests", format = "sdist" }
 ]
 
 [tool.poetry.urls]
