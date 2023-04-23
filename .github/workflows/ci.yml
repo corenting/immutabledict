@@ -13,6 +13,7 @@ on:
 permissions:
   contents: read
   security-events: write
+  id-token: write
 
 jobs:
   ci:
@@ -51,6 +52,7 @@ jobs:
   release:
     name: Release on PyPI
     runs-on: ubuntu-latest
+    environment: release
     needs: ci
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
@@ -65,10 +67,8 @@ jobs:
           cache: "poetry"
       - name: Setup environment
         run: poetry install
-      - name: Publish on PyPI
+      - name: Build
         run: |
-          poetry config pypi-token.pypi $PYPI_TOKEN
           poetry build
-          poetry publish
-        env:
-          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
