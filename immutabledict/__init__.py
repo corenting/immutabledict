@@ -23,7 +23,7 @@ class immutabledict(Mapping[_K, _V]):
     def fromkeys(
         cls, seq: Iterable[_K], value: Optional[_V] = None
     ) -> "immutabledict[_K, _V]":
-        return cls(dict.fromkeys(seq, value))
+        return cls(cls.dict_cls.fromkeys(seq, value))
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         self._dict = self.dict_cls(*args, **kwargs)
