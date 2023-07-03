@@ -13,7 +13,6 @@ on:
 permissions:
   contents: read
   security-events: write
-  id-token: write
 
 jobs:
   ci:
@@ -28,6 +27,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
+        if: ${{ matrix.python-version != '3.12.0-beta.3' }}  # remove when codeql is fixed on 3.12
         with:
           languages: python
       - name: Install Poetry
@@ -45,6 +45,7 @@ jobs:
         run: make test
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
+        if: ${{ matrix.python-version != '3.12.0-beta.3' }}  # remove when codeql is fixed on 3.12
       - name: Codecov
         uses: codecov/codecov-action@v3
         with:
@@ -55,6 +56,8 @@ jobs:
     environment: release
     needs: ci
     if: startsWith(github.ref, 'refs/tags/v')
+    permissions:
+      id-token: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
