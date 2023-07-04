@@ -1,3 +1,7 @@
+# Version 2.2.5
+
+- Fix hard-coded class reference in fromkeys() resulting in always using `dict` for `fromkeys()` (instead of OrderedDict in ImmutableOrderedDict for example). Thanks to [@cthoyt](https://github.com/cthoyt) for the [PR #234](https://github.com/corenting/immutabledict/pull/234)
+
 # Version 2.2.4
 
 - Include tests in sdist for easier packaging
