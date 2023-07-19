@@ -6,7 +6,7 @@ from typing import Any, Dict, Iterable, Iterator, Mapping, Optional, Type, TypeV
 __version__ = "2.2.5"
 
 _K = TypeVar("_K")
-_V = TypeVar("_V")
+_V = TypeVar("_V", covariant=True)
 
 
 class immutabledict(Mapping[_K, _V]):
@@ -34,9 +34,6 @@ class immutabledict(Mapping[_K, _V]):
 
     def __contains__(self, key: object) -> bool:
         return key in self._dict
-
-    def copy(self, **add_or_replace: _V) -> immutabledict[_K, _V]:
-        return self.__class__(self, **add_or_replace)
 
     def __iter__(self) -> Iterator[_K]:
         return iter(self._dict)
