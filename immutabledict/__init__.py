@@ -35,6 +35,9 @@ class immutabledict(Mapping[_K, _V]):
     def __contains__(self, key: object) -> bool:
         return key in self._dict
 
+    def copy(self) -> immutabledict[_K, _V]:
+        return self.__class__(self)
+
     def __iter__(self) -> Iterator[_K]:
         return iter(self._dict)
 
