@@ -4,6 +4,10 @@ from immutabledict import ImmutableOrderedDict, immutabledict
 
 
 class TestImmutableDict:
+    def test_covariance(self):
+        assert immutabledict.__parameters__[0].__covariant__ is False
+        assert immutabledict.__parameters__[1].__covariant__ is True
+
     def test_cannot_assign_value(self):
         with pytest.raises(AttributeError):
             immutabledict().setitem("key", "value")
@@ -41,6 +45,7 @@ class TestImmutableDict:
         original = immutabledict({"a": "value"})
         copy = original.copy()
         assert original == copy
+        assert id(original) != id(copy)
 
     def test_iter(self):
         immutable_dict = immutabledict({"a": "value", "b": "other_value"})
