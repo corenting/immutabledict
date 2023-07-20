@@ -12,13 +12,6 @@ class TestImmutableDict:
         with pytest.raises(AttributeError):
             immutabledict().setitem("key", "value")
 
-    def test_copy(self):
-        original = immutabledict({"a": "value"})
-        copy = original.copy()
-        assert original == copy
-        assert id(original) != id(copy)
-
-
     def test_from_keys(self):
         keys = ("a", "b", "c")
         immutable_dict = immutabledict.fromkeys(keys)
@@ -47,6 +40,12 @@ class TestImmutableDict:
     def test_contains_not_existing(self):
         immutable_dict = immutabledict({"a": "value"})
         assert "b" not in immutable_dict
+
+    def test_copy(self):
+        original = immutabledict({"a": "value"})
+        copy = original.copy()
+        assert original == copy
+        assert id(original) != id(copy)
 
     def test_iter(self):
         immutable_dict = immutabledict({"a": "value", "b": "other_value"})
