@@ -9,7 +9,7 @@ format:
 style:
 	$(PYTHON) black --check immutabledict tests
 	$(PYTHON) ruff immutabledict tests
-	$(PYTHON) mypy -- immutabledict
+	$(PYTHON) mypy -- immutabledict tests
 
 .PHONY: test
 test:

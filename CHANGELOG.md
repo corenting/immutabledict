@@ -1,3 +1,11 @@
+# Version 3.0.0
+
+- `copy()` (**breaking change**): remove the option to pass keyword arguments (which were present as key/value pairs in the copy). Now the method doesn't take any arguments (it behaves the same as a normal `dict`).
+- Python versions: drop Python 3.7 support
+- Typing: fixes
+  - Make the key covariant. Thanks to [@spacether](https://github.com/spacether) for the [PR #244](https://github.com/corenting/immutabledict/pull/244)
+  - Fix key/value typing missing for ImmutableOrderedDict
+
 # Version 2.2.5
 
 - Fix hard-coded class reference in fromkeys() resulting in always using `dict` for `fromkeys()` (instead of OrderedDict in ImmutableOrderedDict for example). Thanks to [@cthoyt](https://github.com/cthoyt) for the [PR #234](https://github.com/corenting/immutabledict/pull/234)

@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections import OrderedDict
 from typing import Any, Dict, Iterable, Iterator, Mapping, Optional, Type, TypeVar
 
-__version__ = "2.2.5"
+__version__ = "3.0.0"
 
 _K = TypeVar("_K")
 _V = TypeVar("_V", covariant=True)
@@ -22,7 +22,7 @@ class immutabledict(Mapping[_K, _V]):
     @classmethod
     def fromkeys(
         cls, seq: Iterable[_K], value: Optional[_V] = None
-    ) -> "immutabledict[_K, _V]":
+    ) -> immutabledict[_K, _V]:
         return cls(cls.dict_cls.fromkeys(seq, value))
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
@@ -45,7 +45,7 @@ class immutabledict(Mapping[_K, _V]):
         return len(self._dict)
 
     def __repr__(self) -> str:
-        return "%s(%r)" % (self.__class__.__name__, self._dict)
+        return "{}({!r})".format(self.__class__.__name__, self._dict)
 
     def __hash__(self) -> int:
         if self._hash is None:
@@ -74,12 +74,9 @@ class immutabledict(Mapping[_K, _V]):
         raise TypeError(f"'{self.__class__.__name__}' object is not mutable")
 
 
-class ImmutableOrderedDict(immutabledict):
+class ImmutableOrderedDict(immutabledict[_K, _V]):
     """
     An immutabledict subclass that maintains key order.
-
-    Not necessary anymore as for Python >= 3.7 order is guaranteed with the normal
-    immutabledict class, but kept for compatibility purpose.
     """
 
     dict_cls = OrderedDict

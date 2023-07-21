@@ -10,14 +10,13 @@ This library is a pure Python, MIT-licensed alternative to the new LGPL-3.0 lice
 It implements the complete mapping interface and can be used as a drop-in replacement for dictionaries where immutability is desired.
 The immutabledict constructor mimics dict, and all of the expected interfaces (iter, len, repr, hash, getitem) are provided. Note that an immutabledict does not guarantee the immutability of its values, so the utility of hash method is restricted by usage.
 
-The only difference is that the copy() method of immutable takes variable keyword arguments, which will be present as key/value pairs in the new, immutable copy.
-
 ## Installation
 
-Available as `immutabledict` on :
-- [pypi](https://pypi.org/project/immutabledict/)
-- [conda-forge](https://anaconda.org/conda-forge/immutabledict) (community-maintained, not an official release)
-- alpine as [py3-immutabledict](https://pkgs.alpinelinux.org/packages?name=py3-immutabledict)  (community-maintained, not an official release)
+Official release in [on pypy](https://pypi.org/project/immutabledict/) as `immutabledict`.
+
+**Community-maintained** releases are available:
+- On [conda-forge](https://anaconda.org/conda-forge/immutabledict) as `immutabledict`
+- On [various package repositories](https://repology.org/project/python:immutabledict/versions)
 
 ## Example
 
@@ -30,7 +29,8 @@ print(my_item["a"]) # Print "value"
 
 ## Differences with the old original frozendict package
 
-- Dropped support of EOL Python versions (version 1.0.0 supports Python 3.5, versions <= 2.2.1 supports Python 3.6)
+- Dropped support of EOL Python versions (older versions of the library may support older Python versions)
 - Fixed `collections.Mapping` deprecation warning
 - Typing
 - [PEP 584 union operators](https://www.python.org/dev/peps/pep-0584/)
+- Keep the same signature for `copy()` as `dict` (starting with immutabledict 3.0.0), don't accept extra keyword arguments.
