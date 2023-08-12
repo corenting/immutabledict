@@ -34,3 +34,9 @@ print(my_item["a"]) # Print "value"
 - Typing
 - [PEP 584 union operators](https://www.python.org/dev/peps/pep-0584/)
 - Keep the same signature for `copy()` as `dict` (starting with immutabledict 3.0.0), don't accept extra keyword arguments.
+
+## Donations
+
+If you wish to support the project, donations are possible on the following platforms:
+- [ko-fi](https://ko-fi.com/corenting)
+- [buymeacoffee](https://www.buymeacoffee.com/corenting)
