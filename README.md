@@ -12,7 +12,7 @@ The immutabledict constructor mimics dict, and all of the expected interfaces (i
 
 ## Installation
 
-Official release in [on pypy](https://pypi.org/project/immutabledict/) as `immutabledict`.
+Official release in [on pypi](https://pypi.org/project/immutabledict/) as `immutabledict`.
 
 **Community-maintained** releases are available:
 - On [conda-forge](https://anaconda.org/conda-forge/immutabledict) as `immutabledict`
