@@ -41,8 +41,8 @@ class immutabledict(Mapping[_K, _V]):
 
     def __new__(cls, *args: Any) -> immutabledict[_K, _V]:
         inst = super().__new__(cls)
-        setattr(inst, '_dict', cls.dict_cls(*args))
-        setattr(inst, '_hash', None)
+        setattr(inst, "_dict", cls.dict_cls(*args))
+        setattr(inst, "_hash", None)
         return inst
 
     def __getitem__(self, key: _K) -> _V:
