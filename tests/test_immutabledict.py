@@ -26,6 +26,10 @@ class TestImmutableDict:
         my_dict = second_dict
         assert my_dict == second_dict
 
+    def test_new_init_methods(self) -> None:
+        assert "__new__" in immutabledict.__dict__
+        assert "__init__" not in immutabledict.__dict__
+
     def test_cannot_assign_value(self) -> None:
         with pytest.raises(AttributeError):
             immutabledict().setitem("key", "value")  # type: ignore
