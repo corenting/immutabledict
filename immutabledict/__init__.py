@@ -30,6 +30,8 @@ class immutabledict(Mapping[_K, _V]):
     """
 
     dict_cls: Type[Dict[Any, Any]] = dict
+    _dict: Dict[_K, _V]
+    _hash: Optional[int]
 
     @classmethod
     def fromkeys(
@@ -37,9 +39,11 @@ class immutabledict(Mapping[_K, _V]):
     ) -> immutabledict[_K, _V]:
         return cls(cls.dict_cls.fromkeys(seq, value))
 
-    def __init__(self, *args: Any, **kwargs: Any) -> None:
-        self._dict = self.dict_cls(*args, **kwargs)
-        self._hash: Optional[int] = None
+    def __new__(cls, *args: Any) -> immutabledict[_K, _V]:
+        inst = super().__new__(cls)
+        setattr(inst, '_dict', cls.dict_cls(*args))
+        setattr(inst, '_hash', None)
+        return inst
 
     def __getitem__(self, key: _K) -> _V:
         return self._dict[key]
