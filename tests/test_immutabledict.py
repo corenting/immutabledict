@@ -185,6 +185,19 @@ class TestImmutableDict:
         assert first_dict == {"a": "a", "b": "b"}
         assert second_dict == {"a": "A", "c": "c"}
 
+    def test_performance(self) -> None:
+        from timeit import timeit
+        time_standard = timeit(
+            "for k, v in d.items(): s += 1", number=3,
+            setup="s=0; d = {i:i for i in range(1000000)}")
+
+        time_immutable = timeit(
+            "for k, v in d.items(): s += 1", globals=globals(), number=3,
+            setup="s=0; d = immutabledict({i:i for i in range(1000000)})")
+
+        assert time_immutable < 1.2 * time_standard
+
+
 
 class TestImmutableOrderedDict:
     def test_ordered(self) -> None:

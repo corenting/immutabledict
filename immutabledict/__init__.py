@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections import OrderedDict
-from typing import Any, Dict, Iterable, Iterator, Mapping, Optional, Type, TypeVar
+from typing import Any, Dict, ItemsView, Iterable, Iterator, Mapping, Optional, Type, TypeVar, ValuesView, KeysView
 
 __version__ = "3.0.0"
 
@@ -72,6 +72,15 @@ class immutabledict(Mapping[_K, _V]):
 
     def __ior__(self, other: Any) -> immutabledict[_K, _V]:
         raise TypeError(f"'{self.__class__.__name__}' object is not mutable")
+
+    def items(self) -> ItemsView[_K, _V]:
+        return self._dict.items()
+
+    def keys(self) -> KeysView[_K]:
+        return self._dict.keys()
+
+    def values(self) -> ValuesView[_V]:
+        return self._dict.values()
 
 
 class ImmutableOrderedDict(immutabledict[_K, _V]):
