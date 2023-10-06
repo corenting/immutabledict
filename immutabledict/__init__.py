@@ -98,6 +98,21 @@ class immutabledict(Mapping[_K, _V]):
     def values(self) -> ValuesView[_V]:
         return self._dict.values()
 
+    def set(self, key: _K, value: Any) -> immutabledict[_K, _V]:
+        new = dict(self._dict)
+        new[key] = value
+        return self.__class__(new)
+
+    def delete(self, key: _K) -> immutabledict[_K, _V]:
+        new = dict(self._dict)
+        del new[key]
+        return self.__class__(new)
+
+    def update(self, _dict: Dict[_K, _V]) -> immutabledict[_K, _V]:
+        new = dict(self._dict)
+        new.update(_dict)
+        return self.__class__(new)
+
 
 class ImmutableOrderedDict(immutabledict[_K, _V]):
     """
