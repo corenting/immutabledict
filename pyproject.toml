@@ -18,6 +18,7 @@ include = [
 [tool.poetry.urls]
 "Changelog" = "https://github.com/corenting/immutabledict/blob/master/CHANGELOG.md"
 "Bug Tracker" = "https://github.com/corenting/immutabledict/issues"
+"Donation" = "https://corenting.fr/donate"
 
 [tool.poetry.dependencies]
 python = "^3.8"

@@ -37,6 +37,4 @@ print(my_item["a"]) # Print "value"
 
 ## Donations
 
-If you wish to support the project, donations are possible on the following platforms:
-- [ko-fi](https://ko-fi.com/corenting)
-- [buymeacoffee](https://www.buymeacoffee.com/corenting)
+If you wish to support the app, donations are possible [here](https://corenting.fr/donate).
