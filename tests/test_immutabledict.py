@@ -215,6 +215,24 @@ class TestImmutableDict:
 
         assert time_immutable < 1.2 * time_standard
 
+    def test_set_delete_update(self) -> None:
+        d: immutabledict[str, int] = immutabledict(a=1, b=2)
+
+        assert d.set("a", 10) == immutabledict(a=10, b=2) == dict(a=10, b=2)
+        assert d.delete("a") == immutabledict(b=2) == dict(b=2)
+
+        with pytest.raises(KeyError):
+            d.delete("c")
+
+        assert d.update({"a": 3}) == immutabledict(a=3, b=2) == dict(a=3, b=2)
+
+        assert (
+            d.update({"c": 17}) == immutabledict(a=1, b=2, c=17) == dict(a=1, b=2, c=17)
+        )
+
+        # Make sure d doesn't change
+        assert d == immutabledict(a=1, b=2) == dict(a=1, b=2)
+
     def test_new_kwargs(self) -> None:
         immutable_dict: immutabledict[str, int] = immutabledict(a=1, b=2)
         assert immutable_dict == {"a": 1, "b": 2} == dict(a=1, b=2)
