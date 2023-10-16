@@ -233,6 +233,10 @@ class TestImmutableDict:
         # Make sure d doesn't change
         assert d == immutabledict(a=1, b=2) == dict(a=1, b=2)
 
+    def test_new_kwargs(self) -> None:
+        immutable_dict: immutabledict[str, int] = immutabledict(a=1, b=2)
+        assert immutable_dict == {"a": 1, "b": 2} == dict(a=1, b=2)
+
 
 class TestImmutableOrderedDict:
     def test_ordered(self) -> None:

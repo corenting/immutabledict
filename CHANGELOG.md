@@ -1,3 +1,8 @@
+# Version 3.1.0
+
+- Replace `__init__` by `__new__`. Thanks to [@spacether](https://github.com/spacether) for the [PR #263](https://github.com/corenting/immutabledict/pull/263)
+- Add explicit items()/keys()/values() methods to speedup these methods. Thanks to [@matthiasdiener](https://github.com/matthiasdiener) for the [PR #265](https://github.com/corenting/immutabledict/pull/265)
+
 # Version 3.0.0
 
 - `copy()` (**breaking change**): remove the option to pass keyword arguments (which were present as key/value pairs in the copy). Now the method doesn't take any arguments (it behaves the same as a normal `dict`).

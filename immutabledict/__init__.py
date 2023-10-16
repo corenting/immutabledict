@@ -39,9 +39,9 @@ class immutabledict(Mapping[_K, _V]):
     ) -> immutabledict[_K, _V]:
         return cls(cls.dict_cls.fromkeys(seq, value))
 
-    def __new__(cls, *args: Any) -> immutabledict[_K, _V]:
+    def __new__(cls, *args: Any, **kwargs: Any) -> immutabledict[_K, _V]:
         inst = super().__new__(cls)
-        setattr(inst, "_dict", cls.dict_cls(*args))
+        setattr(inst, "_dict", cls.dict_cls(*args, **kwargs))
         setattr(inst, "_hash", None)
         return inst
 
