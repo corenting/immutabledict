@@ -27,7 +27,6 @@ jobs:
         uses: actions/checkout@v4
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
-        if: ${{ matrix.python-version != '3.12' }}  # remove when codeql is fixed on 3.12
         with:
           languages: python
       - name: Install Poetry
@@ -45,7 +44,6 @@ jobs:
         run: make test
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
-        if: ${{ matrix.python-version != '3.12' }}  # remove when codeql is fixed on 3.12
       - name: Codecov
         uses: codecov/codecov-action@v3
         with:
