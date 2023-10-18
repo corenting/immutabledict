@@ -6,6 +6,7 @@ authors = ["Corentin Garcia <corenting@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/corenting/immutabledict"
+documentation = "https://immutabledict.corenting.fr"
 keywords = ["immutable", "dictionary"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
