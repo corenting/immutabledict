@@ -1,4 +1,5 @@
 from typing import Any, Dict, Union
+
 import pytest
 
 from immutabledict import ImmutableOrderedDict, immutabledict
@@ -6,8 +7,7 @@ from immutabledict import ImmutableOrderedDict, immutabledict
 
 class TestImmutableDict:
     def test_covariance(self) -> None:
-        """
-        Not a real unit test, but test covariance
+        """Not a real unit test, but test covariance
         as mypy runs on the tests.
         """
 
@@ -98,7 +98,7 @@ class TestImmutableDict:
         immutable_dict: immutabledict[str, str] = immutabledict(
             {"a": "value", "b": "other_value"}
         )
-        eval_ret = eval(repr(immutable_dict))
+        eval_ret = eval(repr(immutable_dict))  # noqa: S307
         assert immutable_dict == eval_ret
 
     def test_hash(self) -> None:
