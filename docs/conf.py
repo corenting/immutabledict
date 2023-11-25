@@ -41,6 +41,7 @@ html_theme_options = {
     "description": "An immutable wrapper around dictionaries",
     "github_user": "corenting",
     "github_repo": "immutabledict",
+    "github_type": "star",
     "codecov_button": True,
     "badge_branch": "master",
     "sidebar_width": "300px",

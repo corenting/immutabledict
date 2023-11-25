@@ -1,8 +1,9 @@
-# Version 3.1.0 (unreleased)
+# Version 4.0.0
 
 - Replace `__init__` by `__new__`. Thanks to [@spacether](https://github.com/spacether) for the [PR #263](https://github.com/corenting/immutabledict/pull/263)
 - Add explicit items()/keys()/values() methods to speedup these methods. Thanks to [@matthiasdiener](https://github.com/matthiasdiener) for the [PR #265](https://github.com/corenting/immutabledict/pull/265)
 - Add set/delete/update functions. Thanks to [@matthiasdiener](https://github.com/matthiasdiener) for the [PR #271](https://github.com/corenting/immutabledict/pull/271)
+- Add documentation at [immutabledict.corenting.fr](https://immutabledict.corenting.fr)
 
 # Version 3.0.0
 
