@@ -11,6 +11,7 @@ from typing import (
     KeysView,
     Mapping,
     Optional,
+    Tuple,
     Type,
     TypeVar,
     ValuesView,
@@ -44,6 +45,11 @@ class immutabledict(Mapping[_K, _V]):  # noqa: N801
         setattr(inst, "_dict", cls._dict_cls(*args, **kwargs))
         setattr(inst, "_hash", None)
         return inst
+
+    def __reduce__(self) -> Tuple[Any, ...]:
+        # Do not store the cached hash value when pickling
+        # as the value might change across Python invocations.
+        return (self.__class__, (self._dict,))
 
     def __getitem__(self, key: _K) -> _V:
         return self._dict[key]
