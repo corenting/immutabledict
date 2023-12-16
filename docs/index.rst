@@ -1,7 +1,7 @@
 Welcome to immutabledict’s documentation!
 =========================================
 
-This site covers immutabledict’s API documentation. For more information about immutabledict, see `the Github repository <https://github.com/corenting/immutabledict>`_.
+This site covers immutabledict’s API documentation for version |release|. For more information about immutabledict, see `the Github repository <https://github.com/corenting/immutabledict>`_.
 
 Usage
 -----
@@ -28,4 +28,5 @@ API reference
 
    /api/immutabledict
    /api/immutable_ordered_dict
+   changelog
 
