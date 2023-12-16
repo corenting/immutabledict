@@ -25,7 +25,6 @@ include = [
 python = "^3.8"
 
 [tool.poetry.dev-dependencies]
-black = "*"
 coverage = "*"
 mypy = "*"
 pytest = "*"
