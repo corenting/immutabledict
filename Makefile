@@ -14,3 +14,7 @@ style:
 .PHONY: test
 test:
 	$(PYTHON) pytest tests --cov=immutabledict --cov-report=xml
+
+.PHONY: build-doc
+build-doc:
+	$(PYTHON) sphinx-build -M html docs docs/build
