@@ -239,7 +239,7 @@ class TestImmutableDict:
         immutable_dict: immutabledict[str, int] = immutabledict(a=1, b=2)
         assert immutable_dict == {"a": 1, "b": 2} == dict(a=1, b=2)
 
-    def test_reduce(self):
+    def test_reduce(self) -> None:
         my_dict: immutabledict[str, int] = immutabledict(a=1, b=2)
         reduce_cls, reduce_args = my_dict.__reduce__()
 
