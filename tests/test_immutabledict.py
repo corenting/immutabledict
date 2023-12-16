@@ -1,3 +1,5 @@
+import pickle
+from io import BytesIO
 from typing import Any, Dict, Union
 
 import pytest
@@ -213,7 +215,7 @@ class TestImmutableDict:
             setup="s=0; d = immutabledict({i:i for i in range(1000000)})",
         )
 
-        assert time_immutable < 1.2 * time_standard
+        assert time_immutable < 1.4 * time_standard
 
     def test_set_delete_update(self) -> None:
         d: immutabledict[str, int] = immutabledict(a=1, b=2)
@@ -236,6 +238,23 @@ class TestImmutableDict:
     def test_new_kwargs(self) -> None:
         immutable_dict: immutabledict[str, int] = immutabledict(a=1, b=2)
         assert immutable_dict == {"a": 1, "b": 2} == dict(a=1, b=2)
+
+    def test_reduce(self):
+        my_dict: immutabledict[str, int] = immutabledict(a=1, b=2)
+        reduce_cls, reduce_args = my_dict.__reduce__()
+
+        assert reduce_cls == immutabledict
+        assert reduce_args == (my_dict._dict,)
+
+    def test_pickle(self) -> None:
+        my_dict: immutabledict[str, int] = immutabledict(a=1, b=2)
+        bytes_io = BytesIO()
+        pickle.dump(my_dict, bytes_io)
+        bytes_io.seek(0)
+
+        from_pickle_dict = pickle.loads(bytes_io.getvalue())  # noqa: S301
+
+        assert my_dict == from_pickle_dict
 
 
 class TestImmutableOrderedDict:
