@@ -1,3 +1,7 @@
+# Version 4.1.0
+
+- Do not store cached hash value when pickling. Thanks to [@matthiasdiener](https://github.com/matthiasdiener) for the [PR #287](https://github.com/corenting/immutabledict/pull/287)
+
 # Version 4.0.0
 
 - Replace `__init__` by `__new__`. Thanks to [@spacether](https://github.com/spacether) for the [PR #263](https://github.com/corenting/immutabledict/pull/263)
