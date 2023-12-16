@@ -26,13 +26,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
           languages: python
       - name: Install Poetry
         run: pipx install poetry
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
           cache: "poetry"
@@ -43,7 +43,7 @@ jobs:
       - name: Test
         run: make test
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+        uses: github/codeql-action/analyze@v3
       - name: Codecov
         uses: codecov/codecov-action@v3
         with:
@@ -62,7 +62,7 @@ jobs:
       - name: Install Poetry
         run: pipx install poetry
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: "poetry"
