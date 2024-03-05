@@ -1,4 +1,5 @@
 """Implementation of the :class:`immutabledict` and :class:`ImmutableOrderedDict` classes."""
+
 from __future__ import annotations
 
 from collections import OrderedDict

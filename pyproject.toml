@@ -40,7 +40,8 @@ tox = "*"
 [tool.ruff]
 line-length = 88
 target-version = "py38"
-per-file-ignores = {"tests/**" = ["S101", "D"]}
+
+[tool.ruff.lint]
 # Enable pycodestyle (E), Pyflakes (F), flake8-print (T20), ruff rules (RUF),
 # isort (I), pep8-naming (N),  pyupgrade (UP), flake8-async (ASYNC),
 # flake8-bandit (S), perflint (PERF) and pydocstyle (D)
@@ -51,8 +52,9 @@ ignore = [
     "D212",  # multiline summary first line
     "D105"   # no docstrings for magic methods
 ]
+per-file-ignores = {"tests/**" = ["S101", "D"]}
 
-[tool.ruff.pyupgrade]
+[tool.ruff.lint.pyupgrade]
 # Preserve types, even if a file imports `from __future__ import annotations`.
 keep-runtime-typing = true
 
