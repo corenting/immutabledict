@@ -235,6 +235,18 @@ class TestImmutableDict:
         # Make sure d doesn't change
         assert d == immutabledict(a=1, b=2) == dict(a=1, b=2)
 
+    def test_discard(self) -> None:
+        d: immutabledict[str, int] = immutabledict(a=1, b=2)
+
+        # Key present
+        assert d.discard("a") == immutabledict(b=2) == {"b": 2}
+        assert hash(d.discard("a")) != hash(d)
+
+        # Key not present
+        assert d.discard("c") == d == {"a": 1, "b": 2}
+        assert hash(d.discard("c")) == hash(d)
+        assert d.discard("c") is d
+
     def test_new_kwargs(self) -> None:
         immutable_dict: immutabledict[str, int] = immutabledict(a=1, b=2)
         assert immutable_dict == {"a": 1, "b": 2} == dict(a=1, b=2)
