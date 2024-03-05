@@ -3,12 +3,12 @@ PYTHON=poetry run
 .PHONY: format
 format:
 	$(PYTHON) ruff format immutabledict tests
-	$(PYTHON) ruff --fix immutabledict tests
+	$(PYTHON) ruff check --fix immutabledict tests
 
 .PHONY: style
 style:
 	$(PYTHON) ruff format --check immutabledict tests
-	$(PYTHON) ruff immutabledict tests
+	$(PYTHON) ruff check immutabledict tests
 	$(PYTHON) mypy -- immutabledict tests
 
 .PHONY: test
