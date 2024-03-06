@@ -32,7 +32,8 @@ print(my_item["a"]) # Print "value"
 - Typing
 - [PEP 584 union operators](https://www.python.org/dev/peps/pep-0584/)
 - Keep the same signature for `copy()` as `dict` (starting with immutabledict 3.0.0), don't accept extra keyword arguments.
+- Added `set`, `delete` and `discard` methods
 
 ## Donations
 
-If you wish to support the app, donations are possible [here](https://corenting.fr/donate).
+If you wish to support this library, donations are possible [here](https://corenting.fr/donate).
