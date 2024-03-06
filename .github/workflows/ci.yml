@@ -20,7 +20,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12", "pypy3.9", "pypy3.10"]
+        python-version:
+          ["3.8", "3.9", "3.10", "3.11", "3.12", "pypy3.9", "pypy3.10"]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -42,18 +43,28 @@ jobs:
         run: make style
       - name: Test
         run: make test
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
       - name: Codecov
         uses: codecov/codecov-action@v4
         with:
           flags: ${{ matrix.python-version }}
           token: ${{ secrets.CODECOV_TOKEN }}
+  code_scanning:
+    name: Code scanning
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: python
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
   release:
     name: Release on PyPI
     runs-on: ubuntu-latest
     environment: release
-    needs: ci
+    needs: [ci, code_scanning]
     if: startsWith(github.ref, 'refs/tags/v')
     permissions:
       id-token: write
