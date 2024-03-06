@@ -142,6 +142,21 @@ class immutabledict(Mapping[_K, _V]):  # noqa: N801
         new.update(_dict)
         return self.__class__(new)
 
+    def discard(self, key: _K) -> immutabledict[_K, _V]:
+        """
+        Return a new :class:`immutabledict` without the item at the given key, if present.
+
+        :param key: the key of the item you want to remove in the returned :class:`immutabledict`
+
+        :return: the new :class:`immutabledict` without the item at the given
+            key, or a reference to itself if the key is not present
+        """
+        # Based on the pyrsistent.PMap.discard() API
+        if key not in self:
+            return self
+
+        return self.delete(key)
+
 
 class ImmutableOrderedDict(immutabledict[_K, _V]):
     """
