@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 4.2.0
+
+- Add `discard` method which return a new immutabledict without the item at the given key, if present. Thanks to [@matthiasdiener](https://github.com/matthiasdiener) for the [PR #307](https://github.com/corenting/immutabledict/pull/307)
+
 ## Version 4.1.0
 
 - Do not store cached hash value when pickling. Thanks to [@matthiasdiener](https://github.com/matthiasdiener) for the [PR #287](https://github.com/corenting/immutabledict/pull/287)
