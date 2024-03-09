@@ -25,7 +25,7 @@ include = [
 "Donation" = "https://corenting.fr/donate"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.8"
 
 [tool.poetry.dev-dependencies]
 coverage = "*"
