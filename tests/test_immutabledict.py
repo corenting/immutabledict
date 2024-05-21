@@ -1,4 +1,5 @@
 import pickle
+import platform
 from io import BytesIO
 from typing import Any, Dict, Union
 
@@ -191,6 +192,10 @@ class TestImmutableDict:
         assert first_dict == {"a": "a", "b": "b"}
         assert second_dict == {"a": "A", "c": "c"}
 
+    @pytest.mark.skipif(
+        platform.python_implementation() == "PyPy",
+        reason="Performance is just checked against CPython",
+    )
     @pytest.mark.parametrize(
         "statement",
         [
