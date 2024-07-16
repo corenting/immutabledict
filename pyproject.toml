@@ -34,7 +34,7 @@ myst-parser = { version = "^3.0.1", python = "^3.9" }
 pytest = "*"
 pytest-cov = "*"
 ruff = "*"
-sphinx = { version = "^7.3", python = "^3.9" }
+sphinx = { version = "^7.4", python = "^3.9" }
 tox = "*"
 
 [tool.ruff]
