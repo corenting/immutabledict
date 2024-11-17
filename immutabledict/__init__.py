@@ -18,7 +18,7 @@ from typing import (
     ValuesView,
 )
 
-__version__ = "4.2.0"
+__version__ = "4.2.1"
 
 _K = TypeVar("_K")
 _V = TypeVar("_V", covariant=True)
