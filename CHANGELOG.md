@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 4.2.1
+
+- Published with attestation
+- Update classifiers, Github Actions... for Python 3.13 (no code changes)
+
 ## Version 4.2.0
 
 - Add `discard` method which return a new immutabledict without the item at the given key, if present. Thanks to [@matthiasdiener](https://github.com/matthiasdiener) for the [PR #307](https://github.com/corenting/immutabledict/pull/307)
