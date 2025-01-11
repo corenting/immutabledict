@@ -1,12 +1,12 @@
-[tool.poetry]
+[project]
 name = "immutabledict"
 version = "4.2.1"
 description = "Immutable wrapper around dictionaries (a fork of frozendict)"
-authors = ["Corentin Garcia <corenting@gmail.com>"]
-license = "MIT"
+license = { text = "MIT" }
+authors = [
+    { name = "Corentin Garcia", email = "corenting@gmail.com" }
+]
 readme = "README.md"
-repository = "https://github.com/corenting/immutabledict"
-documentation = "https://immutabledict.corenting.fr"
 keywords = ["immutable", "dictionary"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -15,26 +15,33 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: PyPy",
     "Programming Language :: Python :: 3 :: Only",
 ]
+requires-python = ">=3.8,<4.0"
+
+[tool.poetry]
 include = [
     { path = "tests", format = "sdist" }
 ]
+
+[project.urls]
+repository = "https://github.com/corenting/immutabledict"
+documentation = "https://immutabledict.corenting.fr"
+"Bug Tracker" = "https://github.com/corenting/immutabledict/issues"
+
 
 [tool.poetry.urls]
 "Changelog" = "https://github.com/corenting/immutabledict/blob/master/CHANGELOG.md"
 "Bug Tracker" = "https://github.com/corenting/immutabledict/issues"
 "Donation" = "https://corenting.fr/donate"
 
-[tool.poetry.dependencies]
-python = ">=3.8"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 coverage = "*"
 mypy = "*"
-myst-parser = { version = "^3.0.1", python = "^3.9" }
+myst-parser = { version = ">=3.0.1,<4", python = ">=3.9" }
 pytest = "*"
 pytest-cov = "*"
 ruff = "*"
-sphinx = { version = "^7.4", python = "^3.9" }
+sphinx = { version = "^7.4", python = ">=3.9" }
 tox = "*"
 
 [tool.ruff]
