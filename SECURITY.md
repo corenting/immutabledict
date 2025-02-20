@@ -8,5 +8,6 @@ immutabledict will receive security updates for each of 1 minor versions within 
 
 ## Reporting a Vulnerability
 
-If you found a security issue, please do **not** report it through GitHub issues.
-You should instead report it directly by email at `corenting@gmail.com`.
+If you find a security issue, please do **not** report it through GitHub issues.
+
+Instead, report it directly via email at corenting@gmail.com to coordinate disclosure and the release of fixed versions. Since immutabledict uses [Tidelift](https://tidelift.com/), they will also be notified.
