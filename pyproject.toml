@@ -70,5 +70,5 @@ ignore_missing_imports = true
 disallow_untyped_defs = true
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=2.0.0"]
 build-backend = "poetry.core.masonry.api"
