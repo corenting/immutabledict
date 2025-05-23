@@ -36,8 +36,8 @@ documentation = "https://immutabledict.corenting.fr"
 
 [tool.poetry.group.dev.dependencies]
 coverage = "*"
-mypy = "*"
 myst-parser = { version = ">=3.0.1,<4", python = ">=3.9" }
+pyright = "*"
 pytest = "*"
 pytest-cov = "*"
 ruff = "*"

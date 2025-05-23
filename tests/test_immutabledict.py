@@ -157,10 +157,10 @@ class TestImmutableDict:
         first_dict: immutabledict[str, str] = immutabledict({"a": "a", "b": "b"})
 
         with pytest.raises(TypeError):
-            first_dict | 0
+            first_dict | 0  # type: ignore
 
         with pytest.raises(TypeError):
-            0 | first_dict
+            0 | first_dict  # type: ignore
 
     def test_union_operator_update(self) -> None:
         first_dict: immutabledict[str, str] = immutabledict({"a": "a", "b": "b"})
@@ -282,7 +282,7 @@ class TestImmutableOrderedDict:
                 "b": "2",
                 "c": "3",
             }
-        )
+        )  # type: ignore
         itered_keys = list(ordered)
         assert itered_keys[0] == "a"
         assert itered_keys[1] == "b"
