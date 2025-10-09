@@ -2,7 +2,7 @@
 name = "immutabledict"
 version = "4.2.1"
 description = "Immutable wrapper around dictionaries (a fork of frozendict)"
-license = { text = "MIT" }
+license = "MIT"
 authors = [
     { name = "Corentin Garcia", email = "corenting@gmail.com" }
 ]
@@ -23,16 +23,11 @@ include = [
 ]
 
 [project.urls]
-repository = "https://github.com/corenting/immutabledict"
+bugtracker = "https://github.com/corenting/immutabledict/issues"
+changelog = "https://github.com/corenting/immutabledict/blob/master/CHANGELOG.md"
 documentation = "https://immutabledict.corenting.fr"
-"Bug Tracker" = "https://github.com/corenting/immutabledict/issues"
-
-
-[tool.poetry.urls]
-"Changelog" = "https://github.com/corenting/immutabledict/blob/master/CHANGELOG.md"
-"Bug Tracker" = "https://github.com/corenting/immutabledict/issues"
-"Donation" = "https://corenting.fr/donate"
-
+donation = "https://corenting.fr/donate"
+repository = "https://github.com/corenting/immutabledict"
 
 [tool.poetry.group.dev.dependencies]
 coverage = "*"
