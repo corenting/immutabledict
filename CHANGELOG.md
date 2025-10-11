@@ -1,5 +1,12 @@
 # Changelog
 
+## Version 4.2.2
+
+No code changes.
+
+- Update classifiers, Github Actions... for Python 3.14
+- Update metadatas for PEP 639
+
 ## Version 4.2.1
 
 - Published with attestation

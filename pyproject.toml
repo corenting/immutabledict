@@ -1,6 +1,6 @@
 [project]
 name = "immutabledict"
-version = "4.2.1"
+version = "4.2.2"
 description = "Immutable wrapper around dictionaries (a fork of frozendict)"
 license = "MIT"
 authors = [
@@ -10,10 +10,18 @@ readme = "README.md"
 keywords = ["immutable", "dictionary"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
-    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
-    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 requires-python = ">=3.8,<4.0"
 
@@ -23,6 +31,7 @@ include = [
 ]
 
 [project.urls]
+homepage = "https://github.com/corenting/immutabledict"
 bugtracker = "https://github.com/corenting/immutabledict/issues"
 changelog = "https://github.com/corenting/immutabledict/blob/master/CHANGELOG.md"
 documentation = "https://immutabledict.corenting.fr"
