@@ -16,6 +16,7 @@ from typing import (
     Type,
     TypeVar,
     ValuesView,
+    overload,
 )
 
 __version__ = "4.2.2"
@@ -39,9 +40,31 @@ class immutabledict(Mapping[_K, _V]):  # noqa: N801
     def fromkeys(  # noqa: D102
         cls, seq: Iterable[_K], value: Optional[_V] = None
     ) -> immutabledict[_K, _V]:
-        return cls(cls._dict_cls.fromkeys(seq, value))
+        return cls(cls._dict_cls.fromkeys(seq, value))  # type: ignore[call-overload, arg-type]
 
-    def __new__(cls, *args: Any, **kwargs: Any) -> immutabledict[_K, _V]:  # noqa: D102
+    @overload
+    def __new__(cls) -> immutabledict[_K, _V]: ...  # type: ignore[overload-overlap]
+
+    @overload
+    def __new__(cls, **kwargs: _V) -> immutabledict[str, _V]: ...
+
+    @overload
+    def __new__(cls, map: Mapping[_K, _V], /) -> immutabledict[_K, _V]: ...
+
+    @overload
+    def __new__(
+        cls, map: Mapping[str, _V], /, **kwargs: _V
+    ) -> immutabledict[str, _V]: ...
+
+    @overload
+    def __new__(cls, iterable: Iterable[Tuple[_K, _V]], /) -> immutabledict[_K, _V]: ...
+
+    @overload
+    def __new__(
+        cls, iterable: Iterable[Tuple[str, _V]], /, **kwargs: _V
+    ) -> immutabledict[str, _V]: ...
+
+    def __new__(cls, *args: Any, **kwargs: Any) -> immutabledict[_K, _V]:  # type: ignore[misc]  # noqa: D102
         inst = super().__new__(cls)
         setattr(inst, "_dict", cls._dict_cls(*args, **kwargs))
         setattr(inst, "_hash", None)
