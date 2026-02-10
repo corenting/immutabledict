@@ -19,7 +19,7 @@ from typing import (
     overload,
 )
 
-__version__ = "4.2.2"
+__version__ = "4.3.0"
 
 _K = TypeVar("_K")
 _V = TypeVar("_V", covariant=True)
