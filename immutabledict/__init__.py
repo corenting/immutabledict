@@ -188,4 +188,31 @@ class ImmutableOrderedDict(immutabledict[_K, _V]):
     Same as :class:`immutabledict` but based on :class:`collections.OrderedDict`.
     """
 
-    dict_cls = OrderedDict
+    _dict_cls = OrderedDict
+
+    @overload
+    def __new__(cls) -> ImmutableOrderedDict[_K, _V]: ...  # type: ignore[overload-overlap]
+
+    @overload
+    def __new__(cls, **kwargs: _V) -> ImmutableOrderedDict[str, _V]: ...
+
+    @overload
+    def __new__(cls, map: Mapping[_K, _V], /) -> ImmutableOrderedDict[_K, _V]: ...
+
+    @overload
+    def __new__(
+        cls, map: Mapping[str, _V], /, **kwargs: _V
+    ) -> ImmutableOrderedDict[str, _V]: ...
+
+    @overload
+    def __new__(
+        cls, iterable: Iterable[Tuple[_K, _V]], /
+    ) -> ImmutableOrderedDict[_K, _V]: ...
+
+    @overload
+    def __new__(
+        cls, iterable: Iterable[Tuple[str, _V]], /, **kwargs: _V
+    ) -> ImmutableOrderedDict[str, _V]: ...
+
+    def __new__(cls, *args: Any, **kwargs: Any) -> ImmutableOrderedDict[_K, _V]:  # type: ignore[misc]  # noqa: D102
+        return super().__new__(cls, *args, **kwargs)  # type: ignore[return-value]
