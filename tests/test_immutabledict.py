@@ -282,7 +282,7 @@ class TestImmutableOrderedDict:
                 "b": "2",
                 "c": "3",
             }
-        )  # type: ignore
+        )
         itered_keys = list(ordered)
         assert itered_keys[0] == "a"
         assert itered_keys[1] == "b"
