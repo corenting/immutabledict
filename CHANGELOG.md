@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 4.3.0
+
+- Add typed `__new__` overloads for type-safe constructor calls. Thanks to [@mfigurnov](https://github.com/mfigurnov) for the [PR](https://github.com/corenting/immutabledict/pull/418).
+- Fix: correct ImmutableOrderedDict _dict_cls so that it works correctly. It actually silently used plain `dict` due to the issue (which actually do preserve order on Python 3.7+, so the bug was not noticed). Thanks to [@mfigurnov](https://github.com/mfigurnov) for the [PR](https://github.com/corenting/immutabledict/pull/418).
+
 ## Version 4.2.2
 
 No code changes.
