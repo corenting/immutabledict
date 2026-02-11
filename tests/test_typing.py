@@ -30,20 +30,11 @@ class TestImmutableDictTyping:
     def test_construct_iterable_and_kwargs(self) -> None:
         _d: immutabledict[str, int] = immutabledict([("a", 1)], b=2)
 
-    def test_construct_wrong_value_kwargs(self) -> None:
-        _d: immutabledict[str, int] = immutabledict(a="oops")  # type: ignore[arg-type]
-
     def test_construct_wrong_value_mapping(self) -> None:
-        _d: immutabledict[str, int] = immutabledict({"a": "oops"})  # type: ignore[arg-type]
-
-    def test_construct_wrong_kwarg_with_mapping(self) -> None:
-        _d: immutabledict[str, int] = immutabledict({"a": 1}, b="oops")  # type: ignore[arg-type]
+        _d: immutabledict[str, int] = immutabledict({"a": "oops"})  # type: ignore[arg-type, dict-item]
 
     def test_construct_wrong_value_iterable(self) -> None:
-        _d: immutabledict[str, int] = immutabledict([("a", "oops")])  # type: ignore[arg-type]
-
-    def test_construct_wrong_kwarg_with_iterable(self) -> None:
-        _d: immutabledict[str, int] = immutabledict([("a", 1)], b="oops")  # type: ignore[arg-type]
+        _d: immutabledict[str, int] = immutabledict([("a", "oops")])  # type: ignore[arg-type, list-item]
 
     def test_getitem_returns_value_type(self) -> None:
         d: immutabledict[str, int] = immutabledict(a=1)
@@ -80,8 +71,5 @@ class TestImmutableOrderedDictTyping:
     def test_construct_kwargs(self) -> None:
         _d: ImmutableOrderedDict[str, int] = ImmutableOrderedDict(a=1, b=2)
 
-    def test_construct_wrong_value_kwargs(self) -> None:
-        _d: ImmutableOrderedDict[str, int] = ImmutableOrderedDict(a="oops")  # type: ignore[arg-type]
-
     def test_construct_wrong_value_mapping(self) -> None:
-        _d: ImmutableOrderedDict[str, int] = ImmutableOrderedDict({"a": "oops"})  # type: ignore[arg-type]
+        _d: ImmutableOrderedDict[str, int] = ImmutableOrderedDict({"a": "oops"})  # type: ignore[arg-type, dict-item]

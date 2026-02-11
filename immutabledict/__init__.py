@@ -46,14 +46,16 @@ class immutabledict(Mapping[_K, _V]):  # noqa: N801
     def __new__(cls) -> immutabledict[_K, _V]: ...  # type: ignore[overload-overlap]
 
     @overload
-    def __new__(cls, **kwargs: _V) -> immutabledict[str, _V]: ...
+    # Using Any for **kwargs because pytype and pyrefly don't infer
+    # a union TypeVar from heterogeneous kwargs values.
+    def __new__(cls, **kwargs: Any) -> immutabledict[str, Any]: ...
 
     @overload
     def __new__(cls, map: Mapping[_K, _V], /) -> immutabledict[_K, _V]: ...
 
     @overload
     def __new__(
-        cls, map: Mapping[str, _V], /, **kwargs: _V
+        cls, map: Mapping[str, _V], /, **kwargs: Any
     ) -> immutabledict[str, _V]: ...
 
     @overload
@@ -61,7 +63,7 @@ class immutabledict(Mapping[_K, _V]):  # noqa: N801
 
     @overload
     def __new__(
-        cls, iterable: Iterable[Tuple[str, _V]], /, **kwargs: _V
+        cls, iterable: Iterable[Tuple[str, _V]], /, **kwargs: Any
     ) -> immutabledict[str, _V]: ...
 
     def __new__(cls, *args: Any, **kwargs: Any) -> immutabledict[_K, _V]:  # type: ignore[misc]  # noqa: D102
@@ -194,14 +196,16 @@ class ImmutableOrderedDict(immutabledict[_K, _V]):
     def __new__(cls) -> ImmutableOrderedDict[_K, _V]: ...  # type: ignore[overload-overlap]
 
     @overload
-    def __new__(cls, **kwargs: _V) -> ImmutableOrderedDict[str, _V]: ...
+    # Using Any for **kwargs because pytype and pyrefly don't infer
+    # a union TypeVar from heterogeneous kwargs values.
+    def __new__(cls, **kwargs: Any) -> ImmutableOrderedDict[str, Any]: ...
 
     @overload
     def __new__(cls, map: Mapping[_K, _V], /) -> ImmutableOrderedDict[_K, _V]: ...
 
     @overload
     def __new__(
-        cls, map: Mapping[str, _V], /, **kwargs: _V
+        cls, map: Mapping[str, _V], /, **kwargs: Any
     ) -> ImmutableOrderedDict[str, _V]: ...
 
     @overload
@@ -211,7 +215,7 @@ class ImmutableOrderedDict(immutabledict[_K, _V]):
 
     @overload
     def __new__(
-        cls, iterable: Iterable[Tuple[str, _V]], /, **kwargs: _V
+        cls, iterable: Iterable[Tuple[str, _V]], /, **kwargs: Any
     ) -> ImmutableOrderedDict[str, _V]: ...
 
     def __new__(cls, *args: Any, **kwargs: Any) -> ImmutableOrderedDict[_K, _V]:  # type: ignore[misc]  # noqa: D102
