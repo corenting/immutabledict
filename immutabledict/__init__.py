@@ -51,7 +51,7 @@ class immutabledict(Mapping[_K, _V]):  # noqa: N801
     def __new__(cls, **kwargs: Any) -> immutabledict[str, Any]: ...
 
     @overload
-    def __new__(cls, map: Mapping[_K, _V], /) -> immutabledict[_K, _V]: ...
+    def __new__(cls, map: Mapping[_K, _V], /) -> immutabledict[_K, _V]: ...  # type: ignore[overload-overlap]
 
     @overload
     def __new__(
@@ -201,7 +201,7 @@ class ImmutableOrderedDict(immutabledict[_K, _V]):
     def __new__(cls, **kwargs: Any) -> ImmutableOrderedDict[str, Any]: ...
 
     @overload
-    def __new__(cls, map: Mapping[_K, _V], /) -> ImmutableOrderedDict[_K, _V]: ...
+    def __new__(cls, map: Mapping[_K, _V], /) -> ImmutableOrderedDict[_K, _V]: ...  # type: ignore[overload-overlap]
 
     @overload
     def __new__(

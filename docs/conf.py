@@ -10,10 +10,8 @@ release = __version__
 
 # General configuration
 extensions = [
-    "alabaster",
     "sphinx.ext.intersphinx",
     "sphinx.ext.autodoc",
-    "myst_parser",
 ]
 
 templates_path = ["_templates"]
