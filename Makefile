@@ -9,8 +9,10 @@ format:
 style:
 	$(PYTHON) ruff format --check immutabledict tests
 	$(PYTHON) ruff check immutabledict tests
+# 	check multiple type checkers
 	$(PYTHON) pyright -- immutabledict tests
-	@if $(PYTHON) python -c "import pyrefly" 2>/dev/null; then $(PYTHON) pyrefly check immutabledict tests; else echo "pyrefly not available, skipping"; fi
+	$(PYTHON) pyrefly check immutabledict tests
+	$(PYTHON) mypy immutabledict tests
 
 .PHONY: test
 test:

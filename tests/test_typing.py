@@ -1,5 +1,8 @@
 # pyright: reportUnnecessaryTypeIgnoreComment=true
-"""Typing tests for immutabledict, validated via ``make style`` (pyright + pyrefly).
+"""Typing tests for immutabledict, validated via `make style`.
+
+These are not real unit tests, but rather a way to ensure
+that the type annotations are correct.
 
 ``reportUnnecessaryTypeIgnoreComment=true`` (above) ensures that
 ``# type: ignore`` comments stay necessary, i.e. the suppressed

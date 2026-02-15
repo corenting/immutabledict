@@ -40,13 +40,13 @@ repository = "https://github.com/corenting/immutabledict"
 
 [tool.poetry.group.dev.dependencies]
 coverage = "*"
-myst-parser = { version = ">=3.0.1,<4", python = ">=3.9" }
-pyrefly = { version = "*", python = ">=3.9" }
+mypy = "*"
+pyrefly = "*"
 pyright = "*"
 pytest = "*"
 pytest-cov = "*"
 ruff = "*"
-sphinx = { version = "^7.4", python = ">=3.9" }
+sphinx = { version = "^7.4", python = ">=3.12" }
 tox = "*"
 
 [tool.ruff]
