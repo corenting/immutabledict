@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 4.3.1
+
+- Fix: fix typing issues with pytype/pyrefly. Thanks to [@mfigurnov](https://github.com/mfigurnov) for the [PR](https://github.com/corenting/immutabledict/pull/420).
+
 ## Version 4.3.0
 
 - Add typed `__new__` overloads for type-safe constructor calls. Thanks to [@mfigurnov](https://github.com/mfigurnov) for the [PR](https://github.com/corenting/immutabledict/pull/418).
