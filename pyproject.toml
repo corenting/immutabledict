@@ -1,6 +1,6 @@
 [project]
 name = "immutabledict"
-version = "4.3.0"
+version = "4.3.1"
 description = "Immutable wrapper around dictionaries (a fork of frozendict)"
 license = "MIT"
 authors = [
