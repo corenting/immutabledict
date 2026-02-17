@@ -46,7 +46,7 @@ pyright = "*"
 pytest = "*"
 pytest-cov = "*"
 ruff = "*"
-sphinx = { version = "^7.4", python = ">=3.12" }
+sphinx = { version = "^9.1", python = ">=3.12" }
 tox = "*"
 
 [tool.ruff]
