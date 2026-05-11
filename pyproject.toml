@@ -49,6 +49,12 @@ ruff = "*"
 sphinx = { version = "^9.1", python = ">=3.12" }
 tox = "*"
 
+# Group to install only dependencies for tests, for PyPI versions which
+# may not support all the dev dependencies
+[tool.poetry.group.testing.dependencies]
+pytest = "*"
+pytest-cov = "*"
+
 [tool.ruff]
 line-length = 88
 target-version = "py38"
