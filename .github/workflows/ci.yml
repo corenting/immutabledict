@@ -37,8 +37,12 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           cache: "poetry"
-      - name: Setup environment
+      - name: Setup environment (PyPI)
+        run: poetry install --only testing
+        if: matrix.python-version == 'pypy3.9' || matrix.python-version == 'pypy3.10' || matrix.python-version == 'pypy3.11'
+      - name: Setup environment (CPython)
         run: poetry install
+        if: matrix.python-version != 'pypy3.9' && matrix.python-version != 'pypy3.10' && matrix.python-version != 'pypy3.11'
       - name: Style
         run: make style
         if: matrix.python-version != 'pypy3.9' && matrix.python-version != 'pypy3.10' && matrix.python-version != 'pypy3.11'
