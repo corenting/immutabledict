@@ -9,7 +9,8 @@ that the type annotations are correct.
 errors are genuinely produced.
 """
 
-from typing import Any, ItemsView, KeysView, Union, ValuesView
+from collections.abc import ItemsView, KeysView, ValuesView
+from typing import Any, Union
 
 from immutabledict import ImmutableOrderedDict, immutabledict
 
