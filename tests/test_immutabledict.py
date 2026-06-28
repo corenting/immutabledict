@@ -1,7 +1,7 @@
 import pickle
 import platform
 from io import BytesIO
-from typing import Any, Dict, Union
+from typing import Any, Union
 
 import pytest
 
@@ -128,7 +128,7 @@ class TestImmutableDict:
         assert second_dict == {"a": "A", "c": "c"}
 
     def test_union_operator_merge_with_dict_first(self) -> None:
-        first_dict: Dict[str, str] = dict({"a": "a", "b": "b"})
+        first_dict: dict[str, str] = dict({"a": "a", "b": "b"})
         second_dict: immutabledict[str, str] = immutabledict({"a": "A", "c": "c"})
         merged_dict = first_dict | second_dict
         assert isinstance(merged_dict, dict)
@@ -142,7 +142,7 @@ class TestImmutableDict:
 
     def test_union_operator_merge_with_dict_second(self) -> None:
         first_dict: immutabledict[str, str] = immutabledict({"a": "a", "b": "b"})
-        second_dict: Dict[str, str] = dict({"a": "A", "c": "c"})
+        second_dict: dict[str, str] = dict({"a": "A", "c": "c"})
         merged_dict = first_dict | second_dict
         assert isinstance(merged_dict, immutabledict)
         assert merged_dict == {
@@ -170,7 +170,7 @@ class TestImmutableDict:
             first_dict |= second_dict
 
     def test_union_operator_update_with_dict_first(self) -> None:
-        first_dict: Dict[str, str] = dict({"a": "a", "b": "b"})
+        first_dict: dict[str, str] = dict({"a": "a", "b": "b"})
         second_dict: immutabledict[str, str] = immutabledict({"a": "A", "c": "c"})
 
         first_dict |= second_dict
@@ -184,7 +184,7 @@ class TestImmutableDict:
 
     def test_union_operator_update_with_dict_second(self) -> None:
         first_dict: immutabledict[str, str] = immutabledict({"a": "a", "b": "b"})
-        second_dict: Dict[str, str] = dict({"a": "A", "c": "c"})
+        second_dict: dict[str, str] = dict({"a": "A", "c": "c"})
 
         with pytest.raises(TypeError):
             first_dict |= second_dict

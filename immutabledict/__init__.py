@@ -3,19 +3,11 @@
 from __future__ import annotations
 
 from collections import OrderedDict
+from collections.abc import ItemsView, Iterable, Iterator, KeysView, Mapping, ValuesView
 from typing import (
     Any,
-    Dict,
-    ItemsView,
-    Iterable,
-    Iterator,
-    KeysView,
-    Mapping,
     Optional,
-    Tuple,
-    Type,
     TypeVar,
-    ValuesView,
     overload,
 )
 
@@ -32,8 +24,8 @@ class immutabledict(Mapping[_K, _V]):  # noqa: N801
     It can be used as a drop-in replacement for dictionaries where immutability is desired.
     """
 
-    _dict_cls: Type[Dict[Any, Any]] = dict
-    _dict: Dict[_K, _V]
+    _dict_cls: type[dict[Any, Any]] = dict
+    _dict: dict[_K, _V]
     _hash: Optional[int]
 
     @classmethod
@@ -59,11 +51,11 @@ class immutabledict(Mapping[_K, _V]):  # noqa: N801
     ) -> immutabledict[str, _V]: ...
 
     @overload
-    def __new__(cls, iterable: Iterable[Tuple[_K, _V]], /) -> immutabledict[_K, _V]: ...
+    def __new__(cls, iterable: Iterable[tuple[_K, _V]], /) -> immutabledict[_K, _V]: ...
 
     @overload
     def __new__(
-        cls, iterable: Iterable[Tuple[str, _V]], /, **kwargs: Any
+        cls, iterable: Iterable[tuple[str, _V]], /, **kwargs: Any
     ) -> immutabledict[str, _V]: ...
 
     def __new__(cls, *args: Any, **kwargs: Any) -> immutabledict[_K, _V]:  # type: ignore[misc]  # noqa: D102
@@ -72,7 +64,7 @@ class immutabledict(Mapping[_K, _V]):  # noqa: N801
         setattr(inst, "_hash", None)
         return inst
 
-    def __reduce__(self) -> Tuple[Any, ...]:
+    def __reduce__(self) -> tuple[Any, ...]:
         # Do not store the cached hash value when pickling
         # as the value might change across Python invocations.
         return (self.__class__, (self._dict,))
@@ -111,7 +103,7 @@ class immutabledict(Mapping[_K, _V]):  # noqa: N801
         new.update(other)
         return self.__class__(new)
 
-    def __ror__(self, other: Any) -> Dict[Any, Any]:
+    def __ror__(self, other: Any) -> dict[Any, Any]:
         if not isinstance(other, (dict, self.__class__)):
             return NotImplemented
         new = dict(other)
@@ -157,7 +149,7 @@ class immutabledict(Mapping[_K, _V]):  # noqa: N801
         del new[key]
         return self.__class__(new)
 
-    def update(self, _dict: Dict[_K, _V]) -> immutabledict[_K, _V]:
+    def update(self, _dict: dict[_K, _V]) -> immutabledict[_K, _V]:
         """
         Similar to :meth:`dict.update` but returning an immutabledict.
 
@@ -210,12 +202,12 @@ class ImmutableOrderedDict(immutabledict[_K, _V]):
 
     @overload
     def __new__(
-        cls, iterable: Iterable[Tuple[_K, _V]], /
+        cls, iterable: Iterable[tuple[_K, _V]], /
     ) -> ImmutableOrderedDict[_K, _V]: ...
 
     @overload
     def __new__(
-        cls, iterable: Iterable[Tuple[str, _V]], /, **kwargs: Any
+        cls, iterable: Iterable[tuple[str, _V]], /, **kwargs: Any
     ) -> ImmutableOrderedDict[str, _V]: ...
 
     def __new__(cls, *args: Any, **kwargs: Any) -> ImmutableOrderedDict[_K, _V]:  # type: ignore[misc]  # noqa: D102
